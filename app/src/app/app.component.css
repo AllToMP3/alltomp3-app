@@ -1,0 +1,21 @@
+.title {
+  text-align: center;
+}
+.input-div {
+  margin: 20px;
+}
+.input-main {
+  width: 100%;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-bottom: 1px solid #ff8a65;
+  color: white;
+  height: 30px;
+  border-right: none;
+  font-size: 16px;
+  font-family: 'TypoPRO Ubuntu';
+}
+.input-main:focus {
+  outline: none;
+}
