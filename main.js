@@ -1,6 +1,9 @@
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const url = require('url');
+const alltomp3 = require('alltomp3');
+const Datastore = require('nedb');
+var db = new Datastore({ filename: path.join(__dirname, 'data.txt'), autoload: true });
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

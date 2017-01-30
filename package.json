@@ -7,6 +7,10 @@
   "author": "Basile Bruneau <basilebruneau@gmail.com>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "alltomp3": "https://github.com/AllToMP3/alltomp3"
+    "alltomp3": "https://github.com/AllToMP3/alltomp3",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.5.7"
   }
 }

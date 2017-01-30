@@ -15,6 +15,7 @@ cd app
 npm install
 cd ..
 npm install
+./node_modules/.bin/electron-rebuild -v 1.4.15 # here specify the version of electron you are using (electron --version)
 ```
 
 ### Launching the app
