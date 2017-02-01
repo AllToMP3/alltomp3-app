@@ -1,9 +1,36 @@
-const {app, BrowserWindow} = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const alltomp3 = require('alltomp3');
-const Datastore = require('nedb');
-var db = new Datastore({ filename: path.join(__dirname, 'data.txt'), autoload: true });
+const nedb = require('nedb-promise');
+var db = {
+  config: nedb.datastore({ filename: path.join(app.getPath('userData'), 'config.db'), autoload: true })
+};
+
+// Database
+// Initialization
+db.config.findOne({ name: 'saving-path' }).then(conf => {
+  console.log(conf);
+  if (!conf) {
+    return db.config.insert({ name: 'saving-path', value: app.getPath('music') });
+  }
+  return conf
+});
+// Messages so the renderer can query the database
+ipcMain.on('db.findOne', (event, arg) => {
+  console.log('[DB] findOne', arg);
+  db[arg.db].findOne(arg.query).then(record => {
+    console.log(record);
+    event.returnValue = record;
+  });
+});
+ipcMain.on('db.update', (event, arg) => {
+  console.log('[DB] update', arg);
+  db[arg.db].update(arg.query, arg.update).then(num => {
+    console.log(num, 'records updated');
+    event.returnValue = num;
+  });
+});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,11 +41,12 @@ function createWindow () {
   win = new BrowserWindow({width: 375, height: 578})
 
   // and load the index.html of the app.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'app/dist/index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  // win.loadURL(url.format({
+  //   pathname: path.join(__dirname, 'app/dist/index.html'),
+  //   protocol: 'file:',
+  //   slashes: true
+  // }));
+  win.loadURL('http://localhost:4200');
 
   // Open the DevTools.
   win.webContents.openDevTools()

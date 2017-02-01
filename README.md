@@ -19,4 +19,5 @@ npm install
 ```
 
 ### Launching the app
-Just execute `./launch.sh` which will compile the angular project and launch the electron app.
+Currently, you have to go in the `app/` folder and execute `ng serve`.
+Then, in another terminal, in the main folder you execute `electron .` (it allows hot-reload of the Angular part).

@@ -1,0 +1,13 @@
+.saving-path--div {
+  font-size: 14px;
+  color: #ddd;
+}
+.label {
+  display: inline-block;
+  font-size: 0.8em;
+  background-color: #222;
+  border: 1px solid #777;
+  border-radius: 3px;
+  padding: 0.2em;
+  cursor: pointer;
+}
