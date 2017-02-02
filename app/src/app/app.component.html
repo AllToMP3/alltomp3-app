@@ -3,8 +3,9 @@
 </h1>
 
 <div class="input-div">
-  <form method="post">
-    <input type="text" class="input-main" placeholder="What do you want to download?" (keyup)="search($event)" />
+  <form method="post" (submit)="execute($event)">
+    <input type="text" class="input-main" placeholder="What do you want to download?" (keyup)="search($event)" name="queryi" [(ngModel)]="queryi" />
+    <button type="submit" style="display: none"></button>
   </form>
   <div class="legend" *ngIf="unsupported">
     This URL is not supported
@@ -13,4 +14,8 @@
     Press <span class="label">Enter</span> to download
   </div>
   <saving-path></saving-path>
+</div>
+
+<div class="requests-div">
+  <app-request *ngFor="let r of requests" [request]="r"></app-request>
 </div>

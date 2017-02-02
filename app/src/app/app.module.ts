@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { SavingPathComponent } from './saving-path/saving-path.component';
 import { DatabaseService } from './database.service';
 import { Alltomp3Service } from './alltomp3.service';
+import { RequestComponent } from './request/request.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SavingPathComponent
+    SavingPathComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,

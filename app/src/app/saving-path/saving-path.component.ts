@@ -1,5 +1,5 @@
 import { Component, OnInit, ApplicationRef } from '@angular/core';
-import {DatabaseService } from '../database.service';
+import { DatabaseService } from '../database.service';
 declare var electron: any;
 
 @Component({

@@ -19,3 +19,7 @@
 .input-main:focus {
   outline: none;
 }
+
+.requests-div {
+  margin: 20px;
+}

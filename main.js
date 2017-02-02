@@ -34,6 +34,22 @@ ipcMain.on('db.update', (event, arg) => {
 
 
 // alltomp3 library
+function forwardEvents(emitter, sender, id) {
+  let events = ['download', 'download-end', 'convert', 'error', 'infos', 'convert-end', 'end'];
+  events.forEach(e => {
+    emitter.on(e, forwardEvent(e, sender, id));
+  });
+}
+function forwardEvent(name, sender, id) {
+  return function(d) {
+    console.log('[AT3] event', name, d);
+    sender.send('at3.event', {
+      id: id,
+      name: name,
+      data: d
+    });
+  }
+}
 ipcMain.on('at3.suggestions', (event, q) => {
   console.log('[AT3] suggestions', q);
   let type = alltomp3.typeOfQuery(q);
@@ -56,6 +72,18 @@ ipcMain.on('at3.suggestions', (event, q) => {
       urlType: alltomp3.guessURLType(q)
     };
   }
+});
+/**
+* q = {
+* url: 'url to download',
+* folder: 'folder where downloading the song',
+* id: 'identifier choosen by the renderer to identify this download'
+* }
+*/
+ipcMain.on('at3.downloadSingleURL', (event, q) => {
+  console.log('[AT3] downloadSingleURL', q);
+  let e = alltomp3.downloadAndTagSingleURL(q.url, q.folder);
+  forwardEvents(e, event.sender, q.id);
 });
 
 var template = [{
@@ -83,7 +111,7 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 375, height: 578})
+  win = new BrowserWindow({width: 400, height: 700})
 
   // and load the index.html of the app.
   // win.loadURL(url.format({
