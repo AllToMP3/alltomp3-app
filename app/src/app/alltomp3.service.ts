@@ -80,7 +80,7 @@ export class Alltomp3Service {
 
   public downloadSingleURL(url: string):string {
     let id = this.randomString(10);
-    this.requests.push({
+    this.requests.unshift({
       query: url,
       id: id,
       status: 'launched',
