@@ -4,8 +4,13 @@
 
 <div class="input-div">
   <form method="post">
-    <input type="text" class="input-main" placeholder="What do you want to download?" />
-    <!-- Display a little message 'type enter to download' in the case of an URL; else suggestions -->
+    <input type="text" class="input-main" placeholder="What do you want to download?" (keyup)="search($event)" />
   </form>
+  <div class="legend" *ngIf="unsupported">
+    This URL is not supported
+  </div>
+  <div class="legend" *ngIf="legend && !unsupported">
+    Press <span class="label">Enter</span> to download
+  </div>
   <saving-path></saving-path>
 </div>

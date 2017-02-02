@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SavingPathComponent } from './saving-path/saving-path.component';
 import { DatabaseService } from './database.service';
+import { Alltomp3Service } from './alltomp3.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { DatabaseService } from './database.service';
     FormsModule,
     HttpModule
   ],
-  providers: [DatabaseService],
+  providers: [DatabaseService, Alltomp3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
 const alltomp3 = require('alltomp3');
@@ -32,6 +32,51 @@ ipcMain.on('db.update', (event, arg) => {
   });
 });
 
+
+// alltomp3 library
+ipcMain.on('at3.suggestions', (event, q) => {
+  console.log('[AT3] suggestions', q);
+  let type = alltomp3.typeOfQuery(q);
+  if (type == 'text') {
+    Promise.all([
+      alltomp3.suggestedSongs(q, 5),
+      alltomp3.suggestedAlbums(q, 5),
+    ]).then(suggestions => {
+      event.returnValue = {
+        type: type,
+        suggestions: {
+          songs: suggestions[0],
+          albums: suggestions[1]
+        }
+      };
+    });
+  } else {
+    event.returnValue = {
+      type: type,
+      urlType: alltomp3.guessURLType(q)
+    };
+  }
+});
+
+var template = [{
+    label: "AllToMP3",
+    submenu: [
+        { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
+        { type: "separator" },
+        { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+    ]}, {
+    label: "Edit",
+    submenu: [
+        { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+        { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+        { type: "separator" },
+        { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+        { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+        { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+        { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+    ]}
+];
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
@@ -49,7 +94,7 @@ function createWindow () {
   win.loadURL('http://localhost:4200');
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  win.webContents.openDevTools();
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -57,13 +102,15 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null
-  })
+  });
+
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
