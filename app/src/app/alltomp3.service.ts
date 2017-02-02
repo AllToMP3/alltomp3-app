@@ -19,7 +19,24 @@ export class Alltomp3Service {
     let result = '';
     for (let i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
     return result;
-}
+  }
+  private trailingZeros(n:number, size:number = 2):string {
+    let out = '' + n;
+    let nb = size - out.length;
+    for (let i = 0; i < nb; i++) {
+      out = '0' + out;
+    }
+    return out;
+  }
+  private formatDuration(duration:number):string {
+    let out = '';
+    if (duration > 3600) {
+      out = this.trailingZeros(Math.floor(duration/3600)) + ':';
+    }
+    out += this.trailingZeros(Math.floor((duration%3600)/60)) + ':';
+    out += this.trailingZeros(duration%60);
+    return out;
+  }
 
   private query(action:string, data):Promise<any> {
     console.log('[AT3]', action, data);
@@ -46,6 +63,9 @@ export class Alltomp3Service {
         r.title = infos.title;
         r.artistName = infos.artistName;
         r.cover = infos.cover;
+        if (_.isNumber(infos.duration)) {
+          r.length = this.formatDuration(infos.duration);
+        }
       } else if (type == 'end') {
         r.finished = true;
       }
