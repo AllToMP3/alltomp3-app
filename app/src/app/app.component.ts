@@ -33,12 +33,11 @@ export class AppComponent {
   }
 
   public execute(event:any) {
-    console.log("Enter");
-    if (this.lastResult.type == 'single-url') {
+    event.preventDefault();
+    if (this.lastResult && this.lastResult.type == 'single-url') {
       this.alltomp3.downloadSingleURL(this.lastQuery);
       this.init();
     }
-    event.preventDefault();
   }
 
   private processQuery(v) {

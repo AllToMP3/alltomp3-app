@@ -2,14 +2,12 @@
   <div class="request--icon" [ngStyle]="{'background-image': 'url(' + request.cover + ')'}">
     <div class="request--progress--div" *ngIf="!request.finished">
       <div class="request--progress">{{ request.progress }}%</div>
-      <div class="request--eta">00:45</div>
+      <div class="request--eta"></div>
     </div>
   </div>
   <div class="request--core">
     <div class="request--title">{{ request.title }}</div>
     <div class="request--artist">{{ request.artistName }}</div>
     <div class="request--length">{{ request.length }}</div>
-  </div>
-  <div class="request--actions">
   </div>
 </div>

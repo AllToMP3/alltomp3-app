@@ -84,7 +84,8 @@ export class Alltomp3Service {
       query: url,
       id: id,
       status: 'launched',
-      title: url
+      title: url,
+      progress: 0
     });
     this.db.getSavingPath().then(p => {
       electron.ipcRenderer.send('at3.downloadSingleURL', {
