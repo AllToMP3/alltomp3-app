@@ -85,6 +85,18 @@ ipcMain.on('at3.downloadSingleURL', (event, q) => {
   let e = alltomp3.downloadAndTagSingleURL(q.url, q.folder);
   forwardEvents(e, event.sender, q.id);
 });
+/**
+* q = {
+* track: 'trackInfos',
+* folder: 'folder where downloading the song',
+* id: 'identifier choosen by the renderer to identify this download'
+* }
+*/
+ipcMain.on('at3.downloadTrack', (event, q) => {
+  console.log('[AT3] downloadTrack', q);
+  let e = alltomp3.downloadTrack(q.track, q.folder);
+  forwardEvents(e, event.sender, q.id);
+});
 
 var template = [{
     label: "AllToMP3",

@@ -5,11 +5,12 @@
   margin: 20px;
 }
 .input-main {
-  width: 100%;
+  width: calc(100% - 2px);
   background: none;
   border-top: none;
   border-left: none;
   border-bottom: 1px solid #ff8a65;
+  padding: 1px;
   color: white;
   height: 30px;
   border-right: none;

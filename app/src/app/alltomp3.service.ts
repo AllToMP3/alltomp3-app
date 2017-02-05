@@ -78,6 +78,27 @@ export class Alltomp3Service {
     return this.query('suggestions', q);
   }
 
+  public downloadTrack(track: any):string {
+    let id = this.randomString(10);
+    this.requests.unshift({
+      track: track,
+      id: id,
+      status: 'launched',
+      title: track.title,
+      artistName: track.artistName,
+      cover: track.cover,
+      progress: 0
+    });
+    this.db.getSavingPath().then(p => {
+      electron.ipcRenderer.send('at3.downloadTrack', {
+        track: track,
+        folder: p + '/',
+        id: id
+      });
+    });
+    return id;
+  }
+
   public downloadSingleURL(url: string):string {
     let id = this.randomString(10);
     this.requests.unshift({

@@ -15,6 +15,7 @@ export class AppComponent {
   lastResult:any;
   queryi:string;
   requests:any[];
+  suggestions:any = {};
 
   constructor(private alltomp3: Alltomp3Service) {
     this.requests = alltomp3.requests;
@@ -26,6 +27,7 @@ export class AppComponent {
     this.legend = false;
     this.unsupported = false;
     this.queryi = '';
+    this.suggestions = {};
   }
 
   public search(event:any) {
@@ -40,6 +42,13 @@ export class AppComponent {
     }
   }
 
+  public selectSuggestion(suggestion, type) {
+    if (type == 'track') {
+      this.alltomp3.downloadTrack(suggestion);
+      this.init();
+    }
+  }
+
   private processQuery(v) {
     if (this.lastQuery == v) {
       return;
@@ -50,10 +59,12 @@ export class AppComponent {
         this.unsupported = s.type == 'not-supported';
         this.legend = s.type != 'text';
         this.lastResult = s;
+        this.suggestions = s.suggestions;
       });
     } else {
       this.unsupported = false;
       this.legend = false;
+      this.suggestions = {};
     }
     this.lastQuery = v;
   }
