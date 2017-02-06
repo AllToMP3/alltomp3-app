@@ -74,6 +74,10 @@ export class Alltomp3Service {
     this.appRef.tick();
   }
 
+  public abort(id: string) {
+    electron.ipcRenderer.send('at3.abort.' + id);
+  }
+
   public suggestions(q: string):Promise<any> {
     return this.query('suggestions', q);
   }

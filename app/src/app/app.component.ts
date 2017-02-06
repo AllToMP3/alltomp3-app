@@ -59,7 +59,11 @@ export class AppComponent {
         this.unsupported = s.type == 'not-supported';
         this.legend = s.type != 'text';
         this.lastResult = s;
-        this.suggestions = s.suggestions;
+        if (s.type == 'text') {
+          this.suggestions = s.suggestions;
+        } else {
+          this.suggestions = {};
+        }
       });
     } else {
       this.unsupported = false;

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Alltomp3Service } from '../alltomp3.service';
 
 @Component({
   selector: 'app-request',
@@ -7,10 +8,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RequestComponent implements OnInit {
 
+  coverOver:boolean = false;
+
   @Input()
   request: any;
 
-  constructor() {
+  constructor(private alltomp3: Alltomp3Service) {
+  }
+
+  public abort() {
+    this.alltomp3.abort(this.request.id);
+    this.request.aborted = true;
+  }
+
+  public coverMouseEnter() {
+    this.coverOver = true;
+  }
+  public coverMouseLeave() {
+    this.coverOver = false;
   }
 
   ngOnInit() {

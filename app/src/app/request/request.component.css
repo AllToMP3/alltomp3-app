@@ -51,3 +51,15 @@
   color: #ddd;
   font-weight: 100;
 }
+.request--progress--div {
+  cursor: pointer;
+}
+.abort--icon {
+  font-size: 30px;
+  margin-bottom: -6px;
+}
+.abort--legend {
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 12px;
+}

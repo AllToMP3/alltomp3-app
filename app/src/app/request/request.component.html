@@ -1,7 +1,15 @@
-<div class="request-div">
+<div class="request-div" *ngIf="!request.aborted">
   <div class="request--icon" [ngStyle]="{'background-image': 'url(' + request.cover + ')'}">
-    <div class="request--progress--div" *ngIf="!request.finished">
-      <div class="request--progress">{{ request.progress }}%</div>
+    <div class="request--progress--div" *ngIf="!request.finished" (click)="abort()" (mouseenter)="coverMouseEnter()" (mouseleave)="coverMouseLeave()">
+      <div class="request--progress" *ngIf="!coverOver">{{ request.progress }}%</div>
+      <div class="request--abort" *ngIf="coverOver">
+        <div class="abort--icon">
+          <i class="icon-cross"></i>
+        </div>
+        <div class="abort--legend">
+          Abort
+        </div>
+      </div>
       <div class="request--eta"></div>
     </div>
   </div>

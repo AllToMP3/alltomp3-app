@@ -39,6 +39,9 @@ function forwardEvents(emitter, sender, id) {
   events.forEach(e => {
     emitter.on(e, forwardEvent(e, sender, id));
   });
+  ipcMain.once('at3.abort.' + id, () => {
+    emitter.emit('abort');
+  });
 }
 function forwardEvent(name, sender, id) {
   return function(d) {
