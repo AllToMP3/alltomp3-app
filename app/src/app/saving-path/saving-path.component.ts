@@ -16,7 +16,11 @@ export class SavingPathComponent implements OnInit {
     this.updatePath();
   }
 
-  updatePath() {
+  public openPath() {
+    electron.shell.openExternal('file://' + this.completePath + '/');
+  }
+
+  public updatePath() {
     this.db.getSavingPath().then(path => {
       this.completePath = path;
       this.path = path.replace(this.db.userPath, '~');
@@ -24,7 +28,7 @@ export class SavingPathComponent implements OnInit {
     });
   }
 
-  changePath() {
+  public changePath() {
     electron.remote.dialog.showOpenDialog({
       title: "Select the folder to download the songs",
       defaultPath: this.completePath,
