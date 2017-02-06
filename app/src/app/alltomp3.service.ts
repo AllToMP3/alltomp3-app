@@ -68,6 +68,7 @@ export class Alltomp3Service {
         }
       } else if (type == 'end') {
         r.finished = true;
+        r.file = data.data.file;
       }
     }
 

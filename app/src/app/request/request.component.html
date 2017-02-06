@@ -1,4 +1,4 @@
-<div class="request-div" *ngIf="!request.aborted">
+<div class="request-div" *ngIf="!request.aborted" (click)="openFile()" [ngClass]="{'clickable': request.finished}">
   <div class="request--icon" [ngStyle]="{'background-image': 'url(' + request.cover + ')'}">
     <div class="request--progress--div" *ngIf="!request.finished" (click)="abort()" (mouseenter)="coverMouseEnter()" (mouseleave)="coverMouseLeave()">
       <div class="request--progress" *ngIf="!coverOver">{{ request.progress }}%</div>

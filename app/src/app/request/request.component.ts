@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Alltomp3Service } from '../alltomp3.service';
+declare var electron: any;
 
 @Component({
   selector: 'app-request',
@@ -26,6 +27,12 @@ export class RequestComponent implements OnInit {
   }
   public coverMouseLeave() {
     this.coverOver = false;
+  }
+
+  public openFile() {
+    if (this.request.finished) {
+      electron.shell.openItem(this.request.file);
+    }
   }
 
   ngOnInit() {
