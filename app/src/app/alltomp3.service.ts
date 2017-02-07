@@ -52,6 +52,39 @@ export class Alltomp3Service {
     if (data.id) {
       let type = data.name;
       let r = _.find(this.requests, {id: data.id});
+      if (r.playlist == true) {
+        var mainr = r; // keep a reference to the main request
+        if (type == 'list') {
+          r.subrequests = [];
+          _.forEach(data.data, infos => {
+            r.subrequests.push({
+              status: 'launched',
+              title: infos.title,
+              progress: 0,
+              cover: infos.cover,
+              artistName: infos.artistName
+            });
+          });
+        }
+
+        if (type != 'list') {
+          r.progress = Math.floor(_.reduce(data.allData, (ac, d:any) => {
+            if (d.progress && d.progress.download) {
+              ac += parseFloat(d.progress.download.progress || 0);
+            }
+            if (d.progress && d.progress.convert) {
+              ac += parseFloat(d.progress.convert.progress || 0);
+            }
+            return ac;
+          }, 0)/r.subrequests.length/2);
+          r = r.subrequests[data.data];
+          data.data = data.allData[data.data];
+          if (data.data.progress && data.data.progress.download) {
+            data.data.progress = data.data.progress.convert || data.data.progress.download;
+            data.data.progress = data.data.progress.progress;
+          }
+        }
+      }
       if (type == 'download') {
         r.progress = Math.floor(parseFloat(data.data.progress)/2);
       } else if (type == 'convert') {
@@ -59,16 +92,31 @@ export class Alltomp3Service {
       } else if (type == 'convert-end') {
         r.progress = 100;
       } else if (type == 'infos') {
-        let infos = data.data;
+        let infos = data.data.infos || data.data;
         r.title = infos.title;
         r.artistName = infos.artistName;
         r.cover = infos.cover;
         if (_.isNumber(infos.duration)) {
           r.length = this.formatDuration(infos.duration);
         }
-      } else if (type == 'end') {
+      } else if (type == 'end' || type == 'end-url') {
         r.finished = true;
         r.file = data.data.file;
+      }
+    }
+
+    if (mainr) {
+      let numberFinished = _.reduce(mainr.subrequests, (ac, d:any) => {
+        if (d.finished) {
+          ac++;
+        }
+        return ac;
+      }, 0);
+      let numberSongs = mainr.subrequests.length;
+
+      mainr.artistName = numberFinished + " / " + numberSongs + " songs";
+      if (numberSongs == numberFinished) {
+        mainr.finished = true;
       }
     }
 
@@ -97,6 +145,26 @@ export class Alltomp3Service {
     this.db.getSavingPath().then(p => {
       electron.ipcRenderer.send('at3.downloadTrack', {
         track: track,
+        folder: p + '/',
+        id: id
+      });
+    });
+    return id;
+  }
+
+  public downloadPlaylist(url: string):string {
+    let id = this.randomString(10);
+    this.requests.unshift({
+      query: url,
+      id: id,
+      status: 'launched',
+      title: url,
+      progress: 0,
+      playlist: true
+    });
+    this.db.getSavingPath().then(p => {
+      electron.ipcRenderer.send('at3.downloadPlaylist', {
+        url: url,
         folder: p + '/',
         id: id
       });

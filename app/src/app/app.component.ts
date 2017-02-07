@@ -36,10 +36,16 @@ export class AppComponent {
 
   public execute(event:any) {
     event.preventDefault();
-    if (this.lastResult && this.lastResult.type == 'single-url') {
-      this.alltomp3.downloadSingleURL(this.lastQuery);
-      this.init();
+    if (!this.lastResult) {
+      return;
     }
+    let type = this.lastResult.type
+    if (type  == 'single-url') {
+      this.alltomp3.downloadSingleURL(this.lastQuery);
+    } else if (type == 'playlist-url') {
+      this.alltomp3.downloadPlaylist(this.lastQuery);
+    }
+    this.init();
   }
 
   public selectSuggestion(suggestion, type) {

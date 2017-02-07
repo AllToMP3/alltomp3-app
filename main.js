@@ -34,22 +34,23 @@ ipcMain.on('db.update', (event, arg) => {
 
 
 // alltomp3 library
-function forwardEvents(emitter, sender, id) {
-  let events = ['download', 'download-end', 'convert', 'error', 'infos', 'convert-end', 'end'];
+function forwardEvents(emitter, sender, id, allData) {
+  let events = ['download', 'download-end', 'convert', 'error', 'infos', 'convert-end', 'end', 'begin-url', 'end-url'];
   events.forEach(e => {
-    emitter.on(e, forwardEvent(e, sender, id));
+    emitter.on(e, forwardEvent(e, sender, id, allData));
   });
   ipcMain.once('at3.abort.' + id, () => {
     emitter.emit('abort');
   });
 }
-function forwardEvent(name, sender, id) {
+function forwardEvent(name, sender, id, allData) {
   return function(d) {
     console.log('[AT3] event', name, d);
     sender.send('at3.event', {
       id: id,
       name: name,
-      data: d
+      data: d,
+      allData: allData
     });
   }
 }
@@ -100,6 +101,27 @@ ipcMain.on('at3.downloadTrack', (event, q) => {
   let e = alltomp3.downloadTrack(q.track, q.folder);
   forwardEvents(e, event.sender, q.id);
 });
+/**
+* q = {
+* url: 'playlist URL',
+* folder: 'folder where downloading the playlist',
+* id: 'identifier choosen by the renderer to identify this download'
+* }
+*/
+ipcMain.on('at3.downloadPlaylist', (event, q) => {
+  console.log('[AT3] downloadPlaylist', q);
+  let e = alltomp3.downloadPlaylist(q.url, q.folder, () => {}, 3);
+  e.on('list', urls => {
+    forwardEvents(e, event.sender, q.id, urls);
+    event.sender.send('at3.event', {
+      id: q.id,
+      name: 'list',
+      data: urls,
+      allData: urls
+    });
+  });
+});
+
 
 var template = [{
     label: "AllToMP3",

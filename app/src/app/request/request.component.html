@@ -19,3 +19,4 @@
     <div class="request--length">{{ request.length }}</div>
   </div>
 </div>
+<app-request *ngFor="let r of request.subrequests" [request]="r"></app-request>
