@@ -9,7 +9,8 @@ declare var electron: any;
 })
 export class RequestComponent implements OnInit {
 
-  coverOver:boolean = false;
+  coverOver:boolean = false; // if the cursor is over the cover or not
+  subOpened:boolean = true; // if the subrequests are opened or not
 
   @Input()
   request: any;
@@ -29,10 +30,22 @@ export class RequestComponent implements OnInit {
     this.coverOver = false;
   }
 
+  public clickRequest() {
+    if (this.request.playlist) {
+      this.subOpened = !this.subOpened;
+    } else {
+      this.openFile();
+    }
+  }
+
   public openFile() {
     if (this.request.finished) {
       electron.shell.openItem(this.request.file);
     }
+  }
+
+  public clickable():boolean {
+    return this.request.playlist || this.request.finished;
   }
 
   ngOnInit() {
