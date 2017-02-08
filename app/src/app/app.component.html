@@ -15,7 +15,7 @@
   </div>
   <div *ngIf="suggestions.songs || suggestions.albums">
     <app-suggestion *ngFor="let suggestion of suggestions.songs" [suggestion]="suggestion" [type]="'track'" (click)="selectSuggestion(suggestion, 'track')"></app-suggestion>
-    <app-suggestion *ngFor="let suggestion of suggestions.albums" [suggestion]="suggestion" [type]="'album'"></app-suggestion>
+    <app-suggestion *ngFor="let suggestion of suggestions.albums" [suggestion]="suggestion" [type]="'album'" (click)="selectSuggestion(suggestion, 'album')"></app-suggestion>
   </div>
   <saving-path></saving-path>
 </div>

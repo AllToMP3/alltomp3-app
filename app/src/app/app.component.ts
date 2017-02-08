@@ -52,6 +52,9 @@ export class AppComponent {
     if (type == 'track') {
       this.alltomp3.downloadTrack(suggestion);
       this.init();
+    } else if (type == 'album') {
+      this.alltomp3.downloadPlaylist(suggestion.link);
+      this.init();
     }
   }
 
