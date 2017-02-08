@@ -19,6 +19,6 @@
     <div class="request--length">{{ request.length }}</div>
   </div>
 </div>
-<div *ngIf="subOpened">
+<div *ngIf="subOpened && !request.aborted">
   <app-request *ngFor="let r of request.subrequests" [request]="r" [abortable]="false"></app-request>
 </div>

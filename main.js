@@ -112,7 +112,7 @@ ipcMain.on('at3.downloadPlaylist', (event, q) => {
   console.log('[AT3] downloadPlaylist', q);
   let e = alltomp3.downloadPlaylist(q.url, q.folder, () => {}, 3);
   e.on('playlist-infos', playlistInfos => {
-    forwardEvents(e, event.sender, q.id, playlistInfos.tracks);
+    forwardEvents(e, event.sender, q.id, playlistInfos.items);
     event.sender.send('at3.event', {
       id: q.id,
       name: 'playlist-infos',

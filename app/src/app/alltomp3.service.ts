@@ -60,7 +60,7 @@ export class Alltomp3Service {
           r.cover = data.data.cover;
 
           r.subrequests = [];
-          _.forEach(data.data.tracks, infos => {
+          _.forEach(data.data.items, infos => {
             r.subrequests.push({
               status: 'launched',
               title: infos.title,
