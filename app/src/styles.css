@@ -13,6 +13,7 @@ body {
   font-family: 'TypoPRO Source Sans Pro';
   background-color: #111;
   color: white;
+  padding-bottom: 30px;
 }
 .legend {
   font-size: 14px;

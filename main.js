@@ -3,6 +3,8 @@ const path = require('path');
 const url = require('url');
 const alltomp3 = require('alltomp3');
 const nedb = require('nedb-promise');
+const util = require('util');
+const os = require('os');
 var db = {
   config: nedb.datastore({ filename: path.join(app.getPath('userData'), 'config.db'), autoload: true })
 };
@@ -122,6 +124,40 @@ ipcMain.on('at3.downloadPlaylist', (event, q) => {
   });
 });
 
+// Feedback
+let feedbackWin = null;
+ipcMain.on('feedback.launch', (event, infos) => {
+  console.log('[Feedback] launch');
+  if (feedbackWin != null) {
+    return;
+  }
+  feedbackWin = new BrowserWindow({width: 800, height: 460})
+
+  feedbackWin.webContents.on('did-finish-load', () => {
+    win.capturePage(image => {
+      infos.os = {
+        platform: process.platform,
+        version: os.release()
+      };
+      infos.screenshot = image.toPNG().toString('base64');
+      let infosify = JSON.stringify(infos);
+      feedbackWin.webContents.send('feedback.infos', infosify);
+    });
+  });
+
+  feedbackWin.loadURL(url.format({
+    pathname: path.join(__dirname, 'feedback/index.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
+
+  // Open the DevTools.
+  feedbackWin.webContents.openDevTools();
+
+  feedbackWin.on('closed', () => {
+    feedbackWin = null;
+  });
+});
 
 var template = [{
     label: "AllToMP3",

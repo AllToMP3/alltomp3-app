@@ -9,13 +9,15 @@ import { DatabaseService } from './database.service';
 import { Alltomp3Service } from './alltomp3.service';
 import { RequestComponent } from './request/request.component';
 import { SuggestionComponent } from './suggestion/suggestion.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SavingPathComponent,
     RequestComponent,
-    SuggestionComponent
+    SuggestionComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
