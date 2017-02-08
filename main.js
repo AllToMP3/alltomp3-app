@@ -147,6 +147,10 @@ var template = [{
 let win
 
 function createWindow () {
+  let locale = app.getLocale();
+  locale = locale.split('-')[0];
+  alltomp3.regionCode = locale.toUpperCase();
+
   // Create the browser window.
   win = new BrowserWindow({width: 400, height: 700})
 
