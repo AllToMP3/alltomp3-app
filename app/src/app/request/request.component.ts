@@ -10,15 +10,21 @@ declare var electron: any;
 export class RequestComponent implements OnInit {
 
   coverOver:boolean = false; // if the cursor is over the cover or not
-  subOpened:boolean = true; // if the subrequests are opened or not
+  subOpened:boolean = false; // if the subrequests are opened or not
 
   @Input()
   request: any;
+
+  @Input()
+  abortable: boolean = true;
 
   constructor(private alltomp3: Alltomp3Service) {
   }
 
   public abort() {
+    if (!this.abortable) {
+      return;
+    }
     this.alltomp3.abort(this.request.id);
     this.request.aborted = true;
   }

@@ -111,13 +111,13 @@ ipcMain.on('at3.downloadTrack', (event, q) => {
 ipcMain.on('at3.downloadPlaylist', (event, q) => {
   console.log('[AT3] downloadPlaylist', q);
   let e = alltomp3.downloadPlaylist(q.url, q.folder, () => {}, 3);
-  e.on('list', urls => {
-    forwardEvents(e, event.sender, q.id, urls);
+  e.on('playlist-infos', playlistInfos => {
+    forwardEvents(e, event.sender, q.id, playlistInfos.tracks);
     event.sender.send('at3.event', {
       id: q.id,
-      name: 'list',
-      data: urls,
-      allData: urls
+      name: 'playlist-infos',
+      data: playlistInfos,
+      allData: playlistInfos
     });
   });
 });

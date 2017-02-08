@@ -54,9 +54,13 @@ export class Alltomp3Service {
       let r = _.find(this.requests, {id: data.id});
       if (r.playlist == true) {
         var mainr = r; // keep a reference to the main request
-        if (type == 'list') {
+        if (type == 'playlist-infos') {
+          r.title = data.data.title;
+          r.artistName = data.data.artistName; // display both number of songs (below progress?) and artistName
+          r.cover = data.data.cover;
+
           r.subrequests = [];
-          _.forEach(data.data, infos => {
+          _.forEach(data.data.tracks, infos => {
             r.subrequests.push({
               status: 'launched',
               title: infos.title,
@@ -67,7 +71,7 @@ export class Alltomp3Service {
           });
         }
 
-        if (type != 'list') {
+        if (type != 'playlist-infos') {
           r.progress = Math.floor(_.reduce(data.allData, (ac, d:any) => {
             if (d.progress && d.progress.download) {
               ac += parseFloat(d.progress.download.progress || 0);
