@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { SavingPathComponent } from './saving-path/saving-path.component';
 import { DatabaseService } from './database.service';
 import { Alltomp3Service } from './alltomp3.service';
+import { LoggerService } from './logger.service';
+import { LoggerErrorService } from './loggererror.service';
+
+import { AppComponent } from './app.component';
+import { SavingPathComponent } from './saving-path/saving-path.component';
 import { RequestComponent } from './request/request.component';
 import { SuggestionComponent } from './suggestion/suggestion.component';
 import { FeedbackComponent } from './feedback/feedback.component';
@@ -24,7 +27,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     FormsModule,
     HttpModule
   ],
-  providers: [DatabaseService, Alltomp3Service],
+  providers: [DatabaseService, Alltomp3Service, LoggerService, {provide: ErrorHandler, useClass: LoggerErrorService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

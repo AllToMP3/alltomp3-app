@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoggerService } from './logger.service';
 declare var electron: any;
 
 @Injectable()
@@ -8,7 +9,7 @@ export class DatabaseService {
   public userPath: string;
   private savingPathP: Promise<any>;
 
-  constructor() {
+  constructor(private logger: LoggerService) {
     this.reloadSavingPath();
     this.userPath = electron.remote.app.getPath('home');
   }
@@ -18,10 +19,10 @@ export class DatabaseService {
   }
 
   private dbQuery(action:string, data):Promise<any> {
-    console.log('[DB]', action, data);
+    this.logger.log('[DB]', action, data);
     return new Promise((resolve, reject) => {
       let v = electron.ipcRenderer.sendSync('db.' + action, data);
-      console.log('[DB]', 'answer', v);
+      this.logger.log('[DB]', 'answer', v);
       resolve(v);
     });
   }

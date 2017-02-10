@@ -8,6 +8,11 @@ const os = require('os');
 var db = {
   config: nedb.datastore({ filename: path.join(app.getPath('userData'), 'config.db'), autoload: true })
 };
+var perrors = [];
+process.on('uncaughtException', function (error) {
+  perrors.push(error);
+  console.log(error);
+});
 
 // Database
 // Initialization
@@ -139,6 +144,8 @@ ipcMain.on('feedback.launch', (event, infos) => {
         platform: process.platform,
         version: os.release()
       };
+      infos.perrors = util.inspect(perrors);
+      infos.errors = util.inspect(infos.errors);
       infos.screenshot = image.toPNG().toString('base64');
       let infosify = JSON.stringify(infos);
       feedbackWin.webContents.send('feedback.infos', infosify);

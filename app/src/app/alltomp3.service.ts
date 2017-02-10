@@ -1,5 +1,6 @@
 import { Injectable, ApplicationRef } from '@angular/core';
 import { DatabaseService } from './database.service';
+import { LoggerService } from './logger.service';
 import * as _ from 'lodash';
 declare var electron: any;
 
@@ -8,7 +9,7 @@ export class Alltomp3Service {
 
   public requests:any[] = []; //[TODO]: create a TS object
 
-  constructor(private db: DatabaseService, private appRef: ApplicationRef) {
+  constructor(private db: DatabaseService, private appRef: ApplicationRef, private logger: LoggerService) {
     electron.ipcRenderer.on('at3.event', (event, arg) => {
       this.eventReceived(event, arg);
     });
@@ -39,16 +40,16 @@ export class Alltomp3Service {
   }
 
   private query(action:string, data):Promise<any> {
-    console.log('[AT3]', action, data);
+    this.logger.log('[AT3]', action, data);
     return new Promise((resolve, reject) => {
       let v = electron.ipcRenderer.sendSync('at3.' + action, data);
-      console.log('[AT3]', 'answer', v);
+      this.logger.log('[AT3]', 'answer', v);
       resolve(v);
     });
   }
 
   private eventReceived(event, data) {
-    console.log('[AT3]', 'eventReceived', data);
+    this.logger.log('[AT3]', 'eventReceived', data);
     if (data.id) {
       let type = data.name;
       let r = _.find(this.requests, {id: data.id});

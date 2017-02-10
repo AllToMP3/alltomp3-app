@@ -63,7 +63,6 @@ export class AppComponent {
       return;
     }
     if (v) {
-      console.log("Search for", v);
       this.alltomp3.suggestions(v).then(s => {
         this.unsupported = s.type == 'not-supported';
         this.legend = s.type != 'text';
