@@ -14,6 +14,12 @@ fform.onsubmit = function(e) {
   };
 
   console.log(data);
+
+  var http = new XMLHttpRequest();
+  var url = "https://alltomp3.org/app.feedback.php";
+  http.open("POST", url, true);
+  http.setRequestHeader("Content-Type", "application/json");
+  http.send(JSON.stringify(data));
 };
 
 electron.ipcRenderer.on('feedback.infos', function (event, inf) {
