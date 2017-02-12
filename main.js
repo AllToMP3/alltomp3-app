@@ -1,10 +1,12 @@
-const { app, BrowserWindow, ipcMain, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu, autoUpdater } = require('electron');
 const path = require('path');
 const url = require('url');
-const alltomp3 = require('alltomp3');
 const nedb = require('nedb-promise');
 const util = require('util');
 const os = require('os');
+const alltomp3 = require('alltomp3');
+const VERSION = app.getVersion();
+const DEV = false;
 var db = {
   config: nedb.datastore({ filename: path.join(app.getPath('userData'), 'config.db'), autoload: true })
 };
@@ -13,6 +15,20 @@ process.on('uncaughtException', function (error) {
   perrors.push(error);
   console.log(error);
 });
+
+// Configure alltomp3 library binaries
+function asarPath(p) {
+  return p.replace('app.asar', 'app.asar.unpacked');
+}
+alltomp3.setFfmpegPaths(asarPath(path.join(__dirname, 'bin/ffmpeg')), asarPath(path.join(__dirname, 'bin/ffprobe')));
+alltomp3.setEyeD3Path(asarPath(path.join(__dirname, 'bin/eyeD3/bin/eyeD3')), asarPath(path.join(__dirname, 'bin/eyeD3/build/lib')));
+alltomp3.setFpcalcPath(asarPath(path.join(__dirname, 'bin/fpcalc')));
+
+// autoUpdater
+if (!DEV) {
+  autoUpdater.setFeedURL('https://update.alltomp3.org/update/' + process.platform + '/' + VERSION);
+  autoUpdater.checkForUpdates();
+}
 
 // Database
 // Initialization
@@ -144,6 +160,7 @@ ipcMain.on('feedback.launch', (event, infos) => {
         platform: process.platform,
         version: os.release()
       };
+      infos.version = VERSION;
       infos.perrors = util.inspect(perrors);
       infos.errors = util.inspect(infos.errors);
       infos.screenshot = image.toPNG().toString('base64');
@@ -159,7 +176,9 @@ ipcMain.on('feedback.launch', (event, infos) => {
   }));
 
   // Open the DevTools.
-  feedbackWin.webContents.openDevTools();
+  if (DEV) {
+    feedbackWin.webContents.openDevTools();
+  }
 
   feedbackWin.on('closed', () => {
     feedbackWin = null;
@@ -198,15 +217,21 @@ function createWindow () {
   win = new BrowserWindow({width: 400, height: 700})
 
   // and load the index.html of the app.
-  // win.loadURL(url.format({
-  //   pathname: path.join(__dirname, 'app/dist/index.html'),
-  //   protocol: 'file:',
-  //   slashes: true
-  // }));
-  win.loadURL('http://localhost:4200');
+  if (DEV) {
+    win.loadURL('http://localhost:4200');
+  } else {
+    win.loadURL(url.format({
+      pathname: path.join(__dirname, 'app/dist/index.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+  }
+
 
   // Open the DevTools.
-  win.webContents.openDevTools();
+  if (DEV) {
+    win.webContents.openDevTools();
+  }
 
   // Emitted when the window is closed.
   win.on('closed', () => {

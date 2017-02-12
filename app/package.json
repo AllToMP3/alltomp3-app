@@ -1,6 +1,8 @@
 {
-  "name": "alltomp3",
-  "version": "0.0.0",
+  "name": "AllToMP3",
+  "description": "Download YouTube videos in MP3 with tags and lyrics",
+  "author": "Basile Bruneau <basilebruneau@gmail.com>",
+  "version": "0.1.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {

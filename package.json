@@ -1,7 +1,7 @@
 {
-  "name": "alltomp3-app",
-  "version": "1.0.0",
-  "description": "Desktop application for AllToMP3",
+  "name": "AllToMP3",
+  "version": "0.1.1",
+  "description": "Download YouTube videos in MP3 with tags and lyrics",
   "main": "main.js",
   "repository": "git@github.com:AllToMP3/alltomp3-app.git",
   "author": "Basile Bruneau <basilebruneau@gmail.com>",
@@ -11,6 +11,31 @@
     "nedb-promise": "^2.0.1"
   },
   "devDependencies": {
+    "electron": "^1.4.15",
+    "electron-builder": "^13.5.0",
     "electron-rebuild": "^1.5.7"
-  }
+  },
+  "build": {
+    "appId": "org.alltomp3.app",
+    "asarUnpack": [
+      "**/node_modules/sharp/**/*",
+      "bin",
+      "bin/**"
+    ],
+    "mac": {
+      "category": "public.app-category.music"
+    },
+    "dmg": {
+      "backgroundColor": "#333",
+      "title": "AllToMP3"
+    },
+    "directories": {
+      "app": "."
+    }
+  },
+  "scripts": {
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "postinstall": "install-app-deps"
 }

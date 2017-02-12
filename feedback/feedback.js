@@ -20,6 +20,8 @@ fform.onsubmit = function(e) {
   http.open("POST", url, true);
   http.setRequestHeader("Content-Type", "application/json");
   http.send(JSON.stringify(data));
+  alert('Your message has been sent!');
+  fmessage.value = '';
 };
 
 electron.ipcRenderer.on('feedback.infos', function (event, inf) {
