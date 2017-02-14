@@ -39,13 +39,14 @@ export class AppComponent {
     if (!this.lastResult) {
       return;
     }
-    let type = this.lastResult.type
+    let type = this.lastResult.type;
     if (type  == 'single-url') {
       this.alltomp3.downloadSingleURL(this.lastQuery);
+      this.init();
     } else if (type == 'playlist-url') {
       this.alltomp3.downloadPlaylist(this.lastQuery);
+      this.init();
     }
-    this.init();
   }
 
   public selectSuggestion(suggestion, type) {
