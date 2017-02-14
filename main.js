@@ -6,7 +6,7 @@ const util = require('util');
 const os = require('os');
 const alltomp3 = require('alltomp3');
 const VERSION = app.getVersion();
-const DEV = false;
+const DEV = true;
 var db = {
   config: nedb.datastore({ filename: path.join(app.getPath('userData'), 'config.db'), autoload: true })
 };
