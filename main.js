@@ -4,6 +4,7 @@ const url = require('url');
 const nedb = require('nedb-promise');
 const util = require('util');
 const os = require('os');
+const ncp = require('ncp');
 const alltomp3 = require('alltomp3');
 const VERSION = app.getVersion();
 const DEV = true;
@@ -21,13 +22,34 @@ function asarPath(p) {
   return p.replace('app.asar', 'app.asar.unpacked');
 }
 alltomp3.tempFolder = app.getPath('temp') + path.sep;
-alltomp3.setFfmpegPaths(asarPath(path.join(__dirname, 'bin/ffmpeg')), asarPath(path.join(__dirname, 'bin/ffprobe')));
-alltomp3.setEyeD3Path(asarPath(path.join(__dirname, 'bin/eyeD3/bin/eyeD3')), asarPath(path.join(__dirname, 'bin/eyeD3/build/lib')));
-alltomp3.setFpcalcPath(asarPath(path.join(__dirname, 'bin/fpcalc')));
+
+if (os.platform() == 'win32') { // On Windows, we need to move eyeD3 in the tempFolder
+  let eyeD3Folder = alltomp3.tempFolder + 'eyeD3';
+  let eyeD3Exe = path.join(eyeD3Folder, 'main.exe');
+  ncp(asarPath(path.join(__dirname, 'bin/eyeD3')), eyeD3Folder, () => {});
+  alltomp3.setFfmpegPaths(asarPath(path.join(__dirname, 'bin/ffmpeg.exe')), asarPath(path.join(__dirname, 'bin/ffprobe.exe')));
+  alltomp3.setFpcalcPath(asarPath(path.join(__dirname, 'bin/fpcalc.exe')));
+  alltomp3.configEyeD3(eyeD3Exe, eyeD3Folder, (m) => {
+    function changep(p) {
+      return path.join('..', path.basename(p));
+    }
+    if (m.lyrics) {
+      m.lyrics = changep(m.lyrics);
+    }
+    if (m.cover) {
+      m.cover = changep(m.cover);
+    }
+  });
+} else {
+  alltomp3.setFfmpegPaths(asarPath(path.join(__dirname, 'bin/ffmpeg')), asarPath(path.join(__dirname, 'bin/ffprobe')));
+  alltomp3.setFpcalcPath(asarPath(path.join(__dirname, 'bin/fpcalc')));
+  alltomp3.configEyeD3(asarPath(path.join(__dirname, 'bin/eyeD3/bin/eyeD3')), asarPath(path.join(__dirname, 'bin/eyeD3/build/lib')));
+}
 
 // autoUpdater
 if (!DEV) {
-  autoUpdater.setFeedURL('https://update.alltomp3.org/update/' + process.platform + '/' + VERSION);
+  let platform = os.platform() + '_' + os.arch();
+  autoUpdater.setFeedURL('https://update.alltomp3.org/update/' + platform + '/' + VERSION);
   autoUpdater.checkForUpdates();
 }
 
