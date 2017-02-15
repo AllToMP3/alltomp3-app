@@ -189,7 +189,7 @@ export class Alltomp3Service {
     this.db.getSavingPath().then(p => {
       electron.ipcRenderer.send('at3.downloadSingleURL', {
         url: url,
-        folder: p + '/',
+        folder: p,
         id: id
       });
     });

@@ -20,6 +20,7 @@ process.on('uncaughtException', function (error) {
 function asarPath(p) {
   return p.replace('app.asar', 'app.asar.unpacked');
 }
+alltomp3.tempFolder = app.getPath('temp') + path.sep;
 alltomp3.setFfmpegPaths(asarPath(path.join(__dirname, 'bin/ffmpeg')), asarPath(path.join(__dirname, 'bin/ffprobe')));
 alltomp3.setEyeD3Path(asarPath(path.join(__dirname, 'bin/eyeD3/bin/eyeD3')), asarPath(path.join(__dirname, 'bin/eyeD3/build/lib')));
 alltomp3.setFpcalcPath(asarPath(path.join(__dirname, 'bin/fpcalc')));
