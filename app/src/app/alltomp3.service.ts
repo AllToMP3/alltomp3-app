@@ -53,6 +53,12 @@ export class Alltomp3Service {
     if (data.id) {
       let type = data.name;
       let r = _.find(this.requests, {id: data.id});
+      if (type == "Error" || data.data.error) {
+        let yterror = data.data.message;
+        yterror = yterror.replace(/^[\s\S]+YouTube said: .+\n(.+)\n$/g, '$1');
+        r.title = "Error";
+        r.artistName = yterror;
+      }
       if (r.playlist == true) {
         var mainr = r; // keep a reference to the main request
         if (type == 'playlist-infos') {

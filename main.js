@@ -36,9 +36,10 @@ if (os.platform() == 'win32') { // On Windows, we need to move eyeD3 in the temp
     if (m.lyrics) {
       m.lyrics = changep(m.lyrics);
     }
-    if (m.cover) {
-      m.cover = changep(m.cover);
+    if (m.image) {
+      m.image = changep(m.image);
     }
+    return m;
   });
 } else {
   alltomp3.setFfmpegPaths(asarPath(path.join(__dirname, 'bin/ffmpeg')), asarPath(path.join(__dirname, 'bin/ffprobe')));
@@ -92,6 +93,9 @@ function forwardEvents(emitter, sender, id, allData) {
 function forwardEvent(name, sender, id, allData) {
   return function(d) {
     console.log('[AT3] event', name, d);
+    if (d instanceof Error) {
+      d = { error: true, name: d.name, message: d.message, stack: d.stack };
+    }
     sender.send('at3.event', {
       id: id,
       name: name,
