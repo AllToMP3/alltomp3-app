@@ -8,6 +8,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "alltomp3": "https://github.com/AllToMP3/alltomp3",
+    "electron-updater": "^1.7.1",
     "ncp": "^2.0.0",
     "nedb-promise": "^2.0.1"
   },
@@ -36,11 +37,17 @@
     "files": [
       "!**/app/node_modules",
       "!**/app/src"
+    ],
+    "publish": [
+      {
+        "provider": "github"
+      }
     ]
   },
   "scripts": {
     "pack": "build --dir",
-    "dist": "build"
+    "dist": "build",
+    "release": "build"
   },
   "postinstall": "install-app-deps"
 }

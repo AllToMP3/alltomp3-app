@@ -1,4 +1,5 @@
-const { app, BrowserWindow, ipcMain, Menu, autoUpdater } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
+const autoUpdater = require("electron-updater").autoUpdater;
 const path = require('path');
 const url = require('url');
 const nedb = require('nedb-promise');
@@ -8,6 +9,12 @@ const ncp = require('ncp');
 const alltomp3 = require('alltomp3');
 const VERSION = app.getVersion();
 const DEV = true;
+
+// autoUpdater
+if (!DEV) {
+  autoUpdater.checkForUpdates();
+}
+
 var db = {
   config: nedb.datastore({ filename: path.join(app.getPath('userData'), 'config.db'), autoload: true })
 };
@@ -45,13 +52,6 @@ if (os.platform() == 'win32') { // On Windows, we need to move eyeD3 in the temp
   alltomp3.setFfmpegPaths(asarPath(path.join(__dirname, 'bin/ffmpeg')), asarPath(path.join(__dirname, 'bin/ffprobe')));
   alltomp3.setFpcalcPath(asarPath(path.join(__dirname, 'bin/fpcalc')));
   alltomp3.configEyeD3(asarPath(path.join(__dirname, 'bin/eyeD3/bin/eyeD3')), asarPath(path.join(__dirname, 'bin/eyeD3/build/lib')));
-}
-
-// autoUpdater
-if (!DEV) {
-  let platform = os.platform() + '_' + os.arch();
-  autoUpdater.setFeedURL('https://update.alltomp3.org/update/' + platform + '/' + VERSION);
-  autoUpdater.checkForUpdates();
 }
 
 // Database
