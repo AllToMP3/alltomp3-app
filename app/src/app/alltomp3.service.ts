@@ -56,7 +56,6 @@ export class Alltomp3Service {
       if (type == "Error" || data.data.error) {
         let yterror = data.data.message;
         yterror = yterror.replace(/^[\s\S]+YouTube said: .+\n(.+)\n$/g, '$1');
-        r.title = "Error";
         r.artistName = yterror;
       }
       if (r.playlist == true) {
