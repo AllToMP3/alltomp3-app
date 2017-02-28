@@ -1,6 +1,6 @@
 {
   "name": "AllToMP3",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Download YouTube videos in MP3 with tags and lyrics",
   "main": "main.js",
   "repository": "git@github.com:AllToMP3/alltomp3-app.git",
@@ -28,8 +28,25 @@
       "category": "public.app-category.music"
     },
     "dmg": {
-      "backgroundColor": "#333",
-      "title": "AllToMP3"
+      "title": "AllToMP3",
+      "icon": "build/dmg.icns",
+      "contents": [
+        {
+            "x": 0,
+            "y": 90
+        },
+        {
+          "x": 220,
+          "y": 90,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "iconSize": 100,
+      "window": {
+        "width": 400,
+        "height": 180
+      }
     },
     "directories": {
       "app": "."
