@@ -48,7 +48,7 @@ if (os.platform() == 'win32') { // On Windows, we need to move eyeD3 in the temp
     }
     return m;
   });
-} else {
+} else if (os.platform() == 'darwin') {
   alltomp3.setFfmpegPaths(asarPath(path.join(__dirname, 'bin/ffmpeg')), asarPath(path.join(__dirname, 'bin/ffprobe')));
   alltomp3.setFpcalcPath(asarPath(path.join(__dirname, 'bin/fpcalc')));
   alltomp3.configEyeD3(asarPath(path.join(__dirname, 'bin/eyeD3/bin/eyeD3')), asarPath(path.join(__dirname, 'bin/eyeD3/build/lib')));
