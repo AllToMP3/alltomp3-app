@@ -7,11 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SuggestionComponent implements OnInit {
 
+  // The suggestion object, containing title, artist, cover...
   @Input()
   suggestion: any;
 
+  // 'album' or 'song'
   @Input()
   type: string;
+
+  // Is this selection selected by the user
+  @Input()
+  active: boolean;
 
   constructor() { }
 

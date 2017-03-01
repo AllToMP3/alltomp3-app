@@ -268,7 +268,9 @@ function createWindow () {
     win = null
   });
 
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  if (os.platform() == 'darwin') {
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  }
 }
 
 // This method will be called when Electron has finished

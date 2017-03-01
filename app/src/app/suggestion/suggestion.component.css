@@ -4,6 +4,9 @@
   border-bottom: 1px solid #ff8a65;
   cursor: pointer;
 }
+.suggestion--active {
+  background-color: #222;
+}
 .suggestion:hover {
   background-color: #222;
 }

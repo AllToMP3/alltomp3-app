@@ -15,7 +15,8 @@ export class AppComponent {
   lastResult:any;
   queryi:string;
   requests:any[];
-  suggestions:any = {};
+  suggestions:any = {}; // {songs: [], albums: []}
+  activeSuggestion:number = 0; // for keyboard navigation -1: no selection, >= 0 song and then album
 
   constructor(private alltomp3: Alltomp3Service) {
     this.requests = alltomp3.requests;
@@ -28,10 +29,20 @@ export class AppComponent {
     this.unsupported = false;
     this.queryi = '';
     this.suggestions = {};
+    this.activeSuggestion = 0;
   }
 
   public search(event:any) {
-    this.processQueryDebounce(event.target.value);
+    if ((this.suggestions.albums || this.suggestions.songs) && (event.keyCode == 40 || event.keyCode == 38)) {
+      if (event.keyCode == 40) { // keydown
+        this.activeSuggestion = Math.min(this.suggestions.songs.length + this.suggestions.albums.length, this.activeSuggestion+1);
+      } else if (event.keyCode == 38) { // keyup
+        this.activeSuggestion = Math.max(-1, this.activeSuggestion-1);
+      }
+      event.preventDefault();
+    } else {
+      this.processQueryDebounce();
+    }
   }
 
   public execute(event:any) {
@@ -46,6 +57,16 @@ export class AppComponent {
     } else if (type == 'playlist-url') {
       this.alltomp3.downloadPlaylist(this.lastQuery);
       this.init();
+    } else if (this.activeSuggestion >= 0) {
+      let songsl = this.suggestions.songs.length;
+      if (this.activeSuggestion > songsl) {
+        var suggestion = this.suggestions.albums[this.activeSuggestion - songsl];
+        var stype = 'album';
+      } else {
+        var suggestion = this.suggestions.songs[this.activeSuggestion];
+        var stype = 'track';
+      }
+      this.selectSuggestion(suggestion, stype);
     }
   }
 
@@ -59,12 +80,12 @@ export class AppComponent {
     }
   }
 
-  private processQuery(v) {
-    if (this.lastQuery == v) {
+  private processQuery() {
+    if (this.lastQuery == this.queryi) {
       return;
     }
-    if (v) {
-      this.alltomp3.suggestions(v).then(s => {
+    if (this.queryi) {
+      this.alltomp3.suggestions(this.queryi).then(s => {
         this.unsupported = s.type == 'not-supported';
         this.legend = s.type != 'text';
         this.lastResult = s;
@@ -79,6 +100,6 @@ export class AppComponent {
       this.legend = false;
       this.suggestions = {};
     }
-    this.lastQuery = v;
+    this.lastQuery = this.queryi;
   }
 }

@@ -5,7 +5,8 @@
   "main": "main.js",
   "repository": "git@github.com:AllToMP3/alltomp3-app.git",
   "author": "Basile Bruneau <basilebruneau@gmail.com>",
-  "license": "AGPL-3.0",
+  "license": "GPL-2.0",
+  "homepage": "https://alltomp3.org/",
   "dependencies": {
     "alltomp3": "https://github.com/AllToMP3/alltomp3",
     "electron-updater": "^1.7.1",
