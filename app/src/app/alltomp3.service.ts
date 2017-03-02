@@ -55,8 +55,10 @@ export class Alltomp3Service {
       let r = _.find(this.requests, {id: data.id});
       if (type == "Error" || data.data.error) {
         let yterror = data.data.message;
-        yterror = yterror.replace(/^[\s\S]+YouTube said: .+\n(.+)\n$/g, '$1');
-        r.artistName = yterror;
+        if (yterror.match(/YouTube said/)) { // youtube-dl error
+          yterror = yterror.replace(/^[\s\S]+YouTube said: .+\n(.+)\n$/g, '$1');
+          r.artistName = yterror;
+        }
       }
       if (r.playlist == true) {
         var mainr = r; // keep a reference to the main request
