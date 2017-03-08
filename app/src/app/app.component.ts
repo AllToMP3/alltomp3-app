@@ -59,7 +59,7 @@ export class AppComponent {
       this.init();
     } else if (this.activeSuggestion >= 0) {
       let songsl = this.suggestions.songs.length;
-      if (this.activeSuggestion > songsl) {
+      if (this.activeSuggestion >= songsl) {
         var suggestion = this.suggestions.albums[this.activeSuggestion - songsl];
         var stype = 'album';
       } else {

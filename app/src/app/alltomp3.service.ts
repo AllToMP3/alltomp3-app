@@ -3,6 +3,7 @@ import { DatabaseService } from './database.service';
 import { LoggerService } from './logger.service';
 import * as _ from 'lodash';
 declare var electron: any;
+declare var Notification: any;
 
 @Injectable()
 export class Alltomp3Service {
@@ -53,7 +54,7 @@ export class Alltomp3Service {
     if (data.id) {
       let type = data.name;
       let r = _.find(this.requests, {id: data.id});
-      if (type == "Error" || data.data.error) {
+      if (type == "Error" || (data.data && data.data.error)) {
         let yterror = data.data.message;
         if (yterror.match(/YouTube said/)) { // youtube-dl error
           yterror = yterror.replace(/^[\s\S]+YouTube said: .+\n(.+)\n$/g, '$1');
@@ -65,6 +66,7 @@ export class Alltomp3Service {
         if (type == 'playlist-infos') {
           r.title = data.data.title;
           r.artistName = data.data.artistName; // display both number of songs (below progress?) and artistName
+          r.originalArtistName = data.data.artistName;
           r.cover = data.data.cover;
 
           r.subrequests = [];
@@ -91,29 +93,34 @@ export class Alltomp3Service {
           }, 0)/r.subrequests.length/2);
           r = r.subrequests[data.data];
           data.data = data.allData[data.data];
-          if (data.data.progress && data.data.progress.download) {
+          if (data.data && data.data.progress && data.data.progress.download) {
             data.data.progress = data.data.progress.convert || data.data.progress.download;
             data.data.progress = data.data.progress.progress;
           }
         }
       }
-      if (type == 'download') {
-        r.progress = Math.floor(parseFloat(data.data.progress)/2);
-      } else if (type == 'convert') {
-        r.progress = Math.floor(50 + parseFloat(data.data.progress)/2);
-      } else if (type == 'convert-end') {
-        r.progress = 100;
-      } else if (type == 'infos') {
-        let infos = data.data.infos || data.data;
-        r.title = infos.title;
-        r.artistName = infos.artistName;
-        r.cover = infos.cover;
-        if (_.isNumber(infos.duration)) {
-          r.length = this.formatDuration(infos.duration);
+      if (r) {
+        if (type == 'download') {
+          r.progress = Math.floor(parseFloat(data.data.progress)/2);
+        } else if (type == 'convert') {
+          r.progress = Math.floor(50 + parseFloat(data.data.progress)/2);
+        } else if (type == 'convert-end') {
+          r.progress = 100;
+        } else if (type == 'infos') {
+          let infos = data.data.infos || data.data;
+          r.title = infos.title;
+          r.artistName = infos.artistName;
+          r.cover = infos.cover;
+          if (_.isNumber(infos.duration)) {
+            r.length = this.formatDuration(infos.duration);
+          }
+        } else if (type == 'end' || type == 'end-url') {
+          r.finished = true;
+          r.file = data.data.file;
+          if (type == 'end') {
+            new Notification("Download finished", {title: "Download finished", body: r.title + " from " + r.artistName + " has been downloaded", icon: r.cover});
+          }
         }
-      } else if (type == 'end' || type == 'end-url') {
-        r.finished = true;
-        r.file = data.data.file;
       }
     }
 
@@ -129,6 +136,7 @@ export class Alltomp3Service {
       mainr.artistName = numberFinished + " / " + numberSongs + " songs";
       if (numberSongs == numberFinished) {
         mainr.finished = true;
+        new Notification("Download finished", {title: "Download finished", body: mainr.title + " from " + mainr.originalArtistName + " has been downloaded", icon: mainr.cover});
       }
     }
 
