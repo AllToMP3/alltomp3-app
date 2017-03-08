@@ -117,7 +117,7 @@ export class Alltomp3Service {
         } else if (type == 'end' || type == 'end-url') {
           r.finished = true;
           r.file = data.data.file;
-          if (type == 'end') {
+          if (type == 'end' && !electron.remote.getCurrentWindow().isFocused()) {
             new Notification("Download finished", {title: "Download finished", body: r.title + " from " + r.artistName + " has been downloaded", icon: r.cover});
           }
         }
@@ -136,7 +136,9 @@ export class Alltomp3Service {
       mainr.artistName = numberFinished + " / " + numberSongs + " songs";
       if (numberSongs == numberFinished) {
         mainr.finished = true;
-        new Notification("Download finished", {title: "Download finished", body: mainr.title + " from " + mainr.originalArtistName + " has been downloaded", icon: mainr.cover});
+        if (!electron.remote.getCurrentWindow().isFocused()) {
+          new Notification("Download finished", {title: "Download finished", body: mainr.title + " from " + mainr.originalArtistName + " has been downloaded", icon: mainr.cover});
+        }
       }
     }
 
