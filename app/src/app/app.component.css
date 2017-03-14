@@ -24,3 +24,27 @@
 .requests-div {
   margin: 20px;
 }
+
+.help-div {
+  margin: 20px;
+  margin-top: 30px;
+  text-align: justify;
+}
+.help-div b {
+  color: #ff8a65;
+  font-style: italic;
+}
+.help-div ul {
+  list-style-type: none;
+  color: lightgray;
+  padding: 0px;
+}
+.help-div li {
+  border: 1px solid #ff8a65;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+.help-div li:hover {
+  background-color: #222;
+}

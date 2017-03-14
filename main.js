@@ -65,6 +65,13 @@ db.config.findOne({ name: 'saving-path' }).then(conf => {
   }
   return conf
 });
+db.config.findOne({ name: 'help-displayed' }).then(helpDisplayed => {
+  if (!helpDisplayed) {
+    return db.config.insert({ name: 'help-displayed', value: false });
+  }
+});
+
+
 // Messages so the renderer can query the database
 ipcMain.on('db.findOne', (event, arg) => {
   console.log('[DB] findOne', arg);

@@ -8,14 +8,19 @@ export class DatabaseService {
   // Paths
   public userPath: string;
   private savingPathP: Promise<any>;
+  private helpDisplayedP: Promise<any>;
 
   constructor(private logger: LoggerService) {
     this.reloadSavingPath();
+    this.reloadHelpDisplayed();
     this.userPath = electron.remote.app.getPath('home');
   }
 
   private reloadSavingPath() {
     this.savingPathP = this.findOne('config', { name: 'saving-path' });
+  }
+  private reloadHelpDisplayed() {
+    this.helpDisplayedP = this.findOne('config', { name: 'help-displayed' });
   }
 
   private dbQuery(action:string, data):Promise<any> {
@@ -45,9 +50,15 @@ export class DatabaseService {
   public getSavingPath():Promise<string> {
     return this.savingPathP.then(p => p.value);
   }
-
   public setSavingPath(path: string):Promise<any> {
     return this.update('config', { name: 'saving-path' }, { $set: { value: path } }).then(() => this.reloadSavingPath());
+  }
+
+  public getHelpDisplayed():Promise<boolean> {
+    return this.helpDisplayedP.then(p => p.value);
+  }
+  public setHelpDisplayed(value: boolean):Promise<any> {
+    return this.update('config', { name: 'help-displayed' }, { $set: { value: value } }).then(() => this.reloadHelpDisplayed());
   }
 
 }
