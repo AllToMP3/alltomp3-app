@@ -1,36 +1,38 @@
-<h1 class="title">
-  AllToMP3
-</h1>
+<div class="body">
+  <h1 class="title">
+    AllToMP3
+  </h1>
 
-<div class="input-div">
-  <form method="post" (submit)="execute($event)">
-    <input type="text" class="input-main" id="input-main" placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" />
-    <button type="submit" style="display: none"></button>
-  </form>
-  <div class="legend" *ngIf="unsupported">
-    This URL is not supported
+  <div class="input-div">
+    <form method="post" (submit)="execute($event)">
+      <input type="text" class="input-main" id="input-main" placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" />
+      <button type="submit" style="display: none"></button>
+    </form>
+    <div class="legend" *ngIf="unsupported">
+      This URL is not supported
+    </div>
+    <div class="legend" *ngIf="legend && !unsupported">
+      Press <span class="label">Enter</span> to download
+    </div>
+    <div *ngIf="suggestions.songs || suggestions.albums">
+      <app-suggestion *ngFor="let suggestion of suggestions.songs; let i = index" [suggestion]="suggestion" [type]="'track'" (click)="selectSuggestion(suggestion, 'track')" [active]="i == activeSuggestion"></app-suggestion>
+      <app-suggestion *ngFor="let suggestion of suggestions.albums; let i = index" [suggestion]="suggestion" [type]="'album'" (click)="selectSuggestion(suggestion, 'album')" [active]="i == (activeSuggestion - suggestions.songs.length)"></app-suggestion>
+    </div>
+    <saving-path></saving-path>
   </div>
-  <div class="legend" *ngIf="legend && !unsupported">
-    Press <span class="label">Enter</span> to download
-  </div>
-  <div *ngIf="suggestions.songs || suggestions.albums">
-    <app-suggestion *ngFor="let suggestion of suggestions.songs; let i = index" [suggestion]="suggestion" [type]="'track'" (click)="selectSuggestion(suggestion, 'track')" [active]="i == activeSuggestion"></app-suggestion>
-    <app-suggestion *ngFor="let suggestion of suggestions.albums; let i = index" [suggestion]="suggestion" [type]="'album'" (click)="selectSuggestion(suggestion, 'album')" [active]="i == (activeSuggestion - suggestions.songs.length)"></app-suggestion>
-  </div>
-  <saving-path></saving-path>
-</div>
 
-<div class="requests-div">
-  <app-request *ngFor="let r of requests" [request]="r"></app-request>
-</div>
+  <div class="requests-div">
+    <app-request *ngFor="let r of requests" [request]="r"></app-request>
+  </div>
 
-<div class="help-div" *ngIf="displayHelp">
-  AllToMP3 is a tool to <b>download music</b> from YouTube, SoundCloud, Deezer in <b>MP3</b> with tags (title, artist, genre...), cover and lyrics.<br /><br />
-  In the <b>input field</b> you can enter things like:
-  <ul>
-    <li *ngFor="let proposal of helpProposals" (click)="selectProposal(proposal)">{{ proposal }}</li>
-  </ul>
-  Don't hesitate to use the <b>button below</b> to signal any <b>bug</b>, problem, or if you have an idea or a <b>suggestion</b>!
+  <div class="help-div" *ngIf="displayHelp">
+    AllToMP3 is a tool to <b>download music</b> from YouTube, SoundCloud, Deezer in <b>MP3</b> with tags (title, artist, genre...), cover and lyrics.<br /><br />
+    In the <b>input field</b> you can enter things like:
+    <ul>
+      <li *ngFor="let proposal of helpProposals" (click)="selectProposal(proposal)">{{ proposal }}</li>
+    </ul>
+    Don't hesitate to use the <b>button below</b> to signal any <b>bug</b>, problem, or if you have an idea or a <b>suggestion</b>!
+  </div>
 </div>
 
 <app-feedback></app-feedback>
