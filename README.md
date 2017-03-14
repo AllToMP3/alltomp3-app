@@ -15,9 +15,13 @@ cd app
 npm install
 cd ..
 npm install
-./node_modules/.bin/electron-rebuild -v 1.4.15 # here specify the version of electron you are using (electron --version)
+./node_modules/.bin/electron-rebuild
 ```
 
 ### Launching the app
 Currently, you have to go in the `app/` folder and execute `ng serve`.
 Then, in another terminal, in the main folder you execute `electron .` (it allows hot-reload of the Angular part).
+
+### Windows Warning
+If you have an antivirus, it may interfere with AllToMP3.
+If you encounter any problem, try to add an exception for AllToMP3 or to deactivate it.
