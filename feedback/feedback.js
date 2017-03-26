@@ -4,6 +4,10 @@ var femail = document.getElementById('email');
 var fmessage = document.getElementById('message');
 var infos;
 
+if (localStorage.getItem('email')) {
+  femail.value = localStorage.getItem('email');
+}
+
 fform.onsubmit = function(e) {
   e.preventDefault();
 
@@ -12,6 +16,8 @@ fform.onsubmit = function(e) {
     message: fmessage.value,
     infos: infos
   };
+
+  localStorage.setItem('email', data.email);
 
   console.log(data);
 
