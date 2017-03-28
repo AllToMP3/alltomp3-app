@@ -8,6 +8,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
   padding-top: 10px;
+  position: relative;
+  animation: from-top 0.8s ease 1;
+}
+@keyframes from-top {
+   0% {top: -40px; opacity: 0;}
+   100% {top: 0px; opacity: 1;}
 }
 .request--icon {
   width: 60px;
