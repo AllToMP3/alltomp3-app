@@ -5,7 +5,7 @@
 
   <div class="input-div">
     <form method="post" (submit)="execute($event)">
-      <input type="text" class="input-main" id="input-main" placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" />
+      <input type="text" class="input-main" id="input-main" placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" autofocus="autofocus" />
       <button type="submit" style="display: none"></button>
     </form>
     <div class="legend" *ngIf="unsupported">
