@@ -27,6 +27,9 @@ body {
   padding: 0.2em;
   cursor: pointer;
 }
+.clickable {
+  cursor: pointer;
+}
 
 .tooltip {
   position: relative;

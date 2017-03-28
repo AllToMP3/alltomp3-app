@@ -21,7 +21,6 @@ export class FeedbackComponent implements OnInit {
   }
 
   public wantFeedback() {
-    // pass information?
     let debugInfos = {
       requests: this.alltomp3.requests,
       logs: this.logger.logs,
@@ -31,7 +30,9 @@ export class FeedbackComponent implements OnInit {
   }
 
   public installUpdate() {
-    electron.ipcRenderer.send('update.install');
+    if (this.alltomp3.numberActive === 0) {
+      electron.ipcRenderer.send('update.install');
+    }
   }
 
   ngOnInit() {

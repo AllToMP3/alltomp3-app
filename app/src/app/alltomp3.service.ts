@@ -9,6 +9,7 @@ declare var Notification: any;
 export class Alltomp3Service {
 
   public requests:any[] = []; //[TODO]: create a TS object
+  public numberActive:number = 0; // Number of active requests
 
   constructor(private db: DatabaseService, private appRef: ApplicationRef, private logger: LoggerService) {
     electron.ipcRenderer.on('at3.event', (event, arg) => {
@@ -119,6 +120,7 @@ export class Alltomp3Service {
         } else if (type == 'end' || type == 'end-url') {
           r.finished = true;
           r.file = data.data.file;
+          this.numberActive--;
           if (type == 'end' && !electron.remote.getCurrentWindow().isFocused()) {
             new Notification("Download finished", {title: "Download finished", body: r.title + " from " + r.artistName + " has been downloaded", icon: r.cover});
           }
@@ -138,6 +140,7 @@ export class Alltomp3Service {
       mainr.artistName = numberFinished + " / " + numberSongs + " songs";
       if (numberSongs == numberFinished) {
         mainr.finished = true;
+        this.numberActive--;
         if (!electron.remote.getCurrentWindow().isFocused()) {
           new Notification("Download finished", {title: "Download finished", body: mainr.title + " from " + mainr.originalArtistName + " has been downloaded", icon: mainr.cover});
         }
@@ -166,6 +169,7 @@ export class Alltomp3Service {
       cover: track.cover,
       progress: 0
     });
+    this.numberActive++;
     this.db.getSavingPath().then(p => {
       electron.ipcRenderer.send('at3.downloadTrack', {
         track: track,
@@ -186,6 +190,7 @@ export class Alltomp3Service {
       progress: 0,
       playlist: true
     });
+    this.numberActive++;
     this.db.getSavingPath().then(p => {
       electron.ipcRenderer.send('at3.downloadPlaylist', {
         url: url,
@@ -205,6 +210,7 @@ export class Alltomp3Service {
       title: url,
       progress: 0
     });
+    this.numberActive++;
     this.db.getSavingPath().then(p => {
       electron.ipcRenderer.send('at3.downloadSingleURL', {
         url: url,
