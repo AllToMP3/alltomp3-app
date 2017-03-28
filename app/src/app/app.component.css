@@ -25,6 +25,12 @@
 .input-main:focus {
   outline: none;
 }
+.input-main::-webkit-input-placeholder  {
+  transition: opacity 0.3s linear;
+}
+.input-main.fade::-webkit-input-placeholder  {
+  opacity: 0;
+}
 
 .requests-div {
   margin: 20px;
@@ -49,6 +55,8 @@
   padding: 10px;
   margin: 10px;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .help-div li:hover {
   background-color: #222;

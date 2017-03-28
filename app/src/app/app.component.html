@@ -29,7 +29,7 @@
     AllToMP3 is a tool to <b>download music</b> from YouTube, SoundCloud, Deezer in <b>MP3</b> with tags (title, artist, genre...), cover and lyrics.<br /><br />
     In the <b>input field</b> you can enter things like:
     <ul>
-      <li *ngFor="let proposal of helpProposals" (click)="selectProposal(proposal)">{{ proposal }}</li>
+      <li *ngFor="let proposal of helpProposals.slice(0, 5)" (click)="selectProposal(proposal)">{{ proposal }}</li>
     </ul>
     Don't hesitate to use the <b>button below</b> to signal any <b>bug</b>, problem, or if you have an idea or a <b>suggestion</b>!
   </div>

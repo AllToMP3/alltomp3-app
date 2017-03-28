@@ -23,9 +23,18 @@ export class AppComponent {
     'https://youtube.com/watch?v=IhP3J0j9JmY',
     'https://soundcloud.com/overwerk/daybreak',
     'https://deezer.com/album/14880539',
+    'https://open.spotify.com/album/7zuqkqhGkTH3PSdywhLgY4',
     'coldplay paradise',
-    'lorde'
+    'lorde',
+    'ed sheeran',
+    'on top of the world',
+    'get lucky',
+    'milky blossom',
+    'truth is a beautiful thing',
+    'shape of you',
+    'petit biscuit sunset',
   ];
+  currentProposal:number = 0; // the proposal displayed in placeholder
   displayHelp:boolean = false;
 
   constructor(private alltomp3: Alltomp3Service, private db: DatabaseService) {
@@ -34,6 +43,16 @@ export class AppComponent {
     this.db.getHelpDisplayed().then(helpDisplayed => {
       this.displayHelp = !helpDisplayed;
     });
+
+    setInterval(() => { this.changePlaceholder.apply(this)}, 5000);
+  }
+
+  private changePlaceholder() {
+    document.getElementById('input-main').className = 'input-main fade';
+    setTimeout(() => {
+      (<HTMLInputElement>document.getElementById('input-main')).placeholder = this.helpProposals[this.currentProposal++ % this.helpProposals.length];
+      document.getElementById('input-main').className = 'input-main';
+    }, 500);
   }
 
   private init() {
