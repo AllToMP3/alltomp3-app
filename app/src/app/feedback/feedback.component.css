@@ -5,9 +5,23 @@
   right: 0;
   text-align: center;
   cursor: pointer;
-  padding: 5px;
   background-color: rgba(30, 30, 30, 0.7);
   border-top: 1px solid #ff8a65;
   font-weight: 100;
+  display: flex;
   /*font-variant: small-caps;*/
+}
+.feedback-btn {
+  padding: 5px;
+  flex: 1;
+}
+.feedback-btn:hover {
+  background-color: rgba(50, 50, 50, 1);
+}
+.update-btn {
+  border-left: 1px solid #ff8a65;
+  width: 40px;
+  font-size: 20px;
+  text-align: center;
+  padding: 2px;
 }

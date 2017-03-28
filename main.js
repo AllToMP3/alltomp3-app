@@ -181,6 +181,14 @@ ipcMain.on('at3.downloadPlaylist', (event, q) => {
   });
 });
 
+// Install update
+ipcMain.on('update.install', (event) => {
+  autoUpdater.quitAndInstall();
+});
+autoUpdater.on('update-downloaded', () => {
+  win.webContents.send('update.downloaded');
+});
+
 // Feedback
 let feedbackWin = null;
 ipcMain.on('feedback.launch', (event, infos) => {

@@ -1,3 +1,11 @@
-<div class="feedback-div" (click)="wantFeedback()">
-  Any comment, idea, suggestion, or bug?
+<div class="feedback-div">
+  <div class="feedback-btn" (click)="wantFeedback()">
+    Any comment, idea, suggestion, or bug?
+  </div>
+  <div class="update-btn" (click)="installUpdate()" *ngIf="updateAvailable">
+    <div class="tooltip">
+      <i class="icon-cycle"></i>
+      <span class="tooltiptext">An update has been downloaded and will be installed at the next app launch, or click to relaunch the app now</span>
+    </div>
+  </div>
 </div>
