@@ -59,6 +59,8 @@ export class Alltomp3Service {
         if (yterror.match(/YouTube said/)) { // youtube-dl error
           yterror = yterror.replace(/^[\s\S]+YouTube said: .+\n(.+)\n$/g, '$1');
           r.artistName = yterror;
+        } else if (yterror === 'Error: spawn EPERM') {
+          r.artistName = 'An error occured. If you have an antivirus, try to deactivate it and try again. It may interfere with AllToMP3.'
         }
       }
       if (r.playlist == true) {
