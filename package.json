@@ -28,6 +28,12 @@
     "mac": {
       "category": "public.app-category.music"
     },
+    "linux": {
+      "target": "deb",
+      "executableName": "alltomp3",
+      "category": "AudioVideo",
+      "packageCategory": "sound"
+    },
     "dmg": {
       "title": "AllToMP3",
       "icon": "build/dmg.icns",

@@ -11,7 +11,7 @@ const VERSION = app.getVersion();
 const DEV = true;
 
 // autoUpdater
-if (!DEV) {
+if (!DEV && os.platform() != 'linux') {
   autoUpdater.checkForUpdates();
 }
 
