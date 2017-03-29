@@ -1,4 +1,4 @@
-# alltomp3-app
+# alltomp3-app <a href="https://packagecloud.io/"><img alt="Private Maven, RPM, DEB, PyPi and RubyGem Repository | packagecloud" height="46" src="https://packagecloud.io/images/packagecloud-badge.png" width="158" /></a>
 Desktop application with Electron for AllToMP3.
 
 ## For developers
