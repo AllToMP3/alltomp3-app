@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="3f076ce994611c87527e4e17cc65916cda195966" datatype="html">
+        <source>What do you want to download?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2e66d4c5689e5e2149360c8c74ff55c904b5bfcb" datatype="html">
+        <source>
+      This URL is not supported
+    </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="1564f2f84b4f796e3f4d90c86dca06570dec4c9e" datatype="html">
+        <source>
+      Press <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> to download
+    </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="684a27e93212734faa07db9adb57fafec1775d74" datatype="html">
+        <source>
+    AllToMP3 is a tool to <x id="START_BOLD_TEXT" ctype="x-b"/>download music<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> from YouTube, SoundCloud, Deezer in <x id="START_BOLD_TEXT" ctype="x-b"/>MP3<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> with tags (title, artist, genre...), cover and lyrics.<x id="LINE_BREAK" ctype="lb"/><x id="LINE_BREAK" ctype="lb"/>
+    In the <x id="START_BOLD_TEXT" ctype="x-b"/>input field<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> you can enter things like:
+    <x id="START_UNORDERED_LIST" ctype="x-ul"/>
+      <x id="START_LIST_ITEM" ctype="x-li"/><x id="INTERPOLATION"/><x id="CLOSE_LIST_ITEM" ctype="x-li"/>
+    <x id="CLOSE_UNORDERED_LIST" ctype="x-ul"/>
+    Don&apos;t hesitate to use the <x id="START_BOLD_TEXT" ctype="x-b"/>button below<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> to signal any <x id="START_BOLD_TEXT" ctype="x-b"/>bug<x id="CLOSE_BOLD_TEXT" ctype="x-b"/>, problem, or if you have an idea or a <x id="START_BOLD_TEXT" ctype="x-b"/>suggestion<x id="CLOSE_BOLD_TEXT" ctype="x-b"/>!
+  </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2d85c24d82d4323a3ef4302294917093ec3487e5" datatype="html">
+        <source>Songs are downloaded in <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4e4e1488d2637ddc4846306509caa15411e1788a" datatype="html">
+        <source>
+            Abort
+          </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="14f4161d7465749a96fb8f559b146709fefd725f" datatype="html">
+        <source>
+    Any comment, idea, suggestion, or bug?
+  </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6470eedcfc4085470c43c2de67e8b738f797a226" datatype="html">
+        <source>An update has been downloaded and will be installed at the next app launch<x id="START_TAG_SPAN" ctype="x-span"/>, or click to relaunch the app now<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

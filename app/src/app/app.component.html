@@ -5,13 +5,13 @@
 
   <div class="input-div">
     <form method="post" (submit)="execute($event)">
-      <input type="text" class="input-main" id="input-main" placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" autofocus="autofocus" />
+      <input type="text" class="input-main" id="input-main" i18n-placeholder placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" autofocus="autofocus" />
       <button type="submit" style="display: none"></button>
     </form>
-    <div class="legend" *ngIf="unsupported">
+    <div class="legend" *ngIf="unsupported" i18n>
       This URL is not supported
     </div>
-    <div class="legend" *ngIf="legend && !unsupported">
+    <div class="legend" *ngIf="legend && !unsupported" i18n>
       Press <span class="label">Enter</span> to download
     </div>
     <div *ngIf="suggestions.songs || suggestions.albums">
@@ -25,7 +25,7 @@
     <app-request *ngFor="let r of requests" [request]="r"></app-request>
   </div>
 
-  <div class="help-div" *ngIf="displayHelp">
+  <div class="help-div" *ngIf="displayHelp" i18n>
     AllToMP3 is a tool to <b>download music</b> from YouTube, SoundCloud, Deezer in <b>MP3</b> with tags (title, artist, genre...), cover and lyrics.<br /><br />
     In the <b>input field</b> you can enter things like:
     <ul>

@@ -7,6 +7,7 @@ import { DatabaseService } from './database.service';
 import { Alltomp3Service } from './alltomp3.service';
 import { LoggerService } from './logger.service';
 import { LoggerErrorService } from './loggererror.service';
+import { TransService } from './trans.service';
 
 import { AppComponent } from './app.component';
 import { SavingPathComponent } from './saving-path/saving-path.component';
@@ -27,7 +28,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     FormsModule,
     HttpModule
   ],
-  providers: [DatabaseService, Alltomp3Service, LoggerService, {provide: ErrorHandler, useClass: LoggerErrorService}],
+  providers: [DatabaseService, Alltomp3Service, TransService, LoggerService, {provide: ErrorHandler, useClass: LoggerErrorService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Injectable, ApplicationRef } from '@angular/core';
 import { DatabaseService } from './database.service';
 import { LoggerService } from './logger.service';
+import { TransService } from './trans.service';
 import * as _ from 'lodash';
 declare var electron: any;
 declare var Notification: any;
@@ -11,7 +12,7 @@ export class Alltomp3Service {
   public requests:any[] = []; //[TODO]: create a TS object
   public numberActive:number = 0; // Number of active requests
 
-  constructor(private db: DatabaseService, private appRef: ApplicationRef, private logger: LoggerService) {
+  constructor(private db: DatabaseService, private appRef: ApplicationRef, private logger: LoggerService, private __: TransService) {
     electron.ipcRenderer.on('at3.event', (event, arg) => {
       this.eventReceived(event, arg);
     });
@@ -61,7 +62,7 @@ export class Alltomp3Service {
           yterror = yterror.replace(/^[\s\S]+YouTube said: .+\n(.+)\n$/g, '$1');
           r.artistName = yterror;
         } else if (yterror === 'Error: spawn EPERM') {
-          r.artistName = 'An error occured. If you have an antivirus, try to deactivate it and try again. It may interfere with AllToMP3.'
+          r.artistName = this.__.t.antivirus;
         }
       }
       if (r.playlist == true) {
@@ -122,7 +123,7 @@ export class Alltomp3Service {
           r.file = data.data.file;
           this.numberActive--;
           if (type == 'end' && !electron.remote.getCurrentWindow().isFocused()) {
-            new Notification("Download finished", {title: "Download finished", body: r.title + " from " + r.artistName + " has been downloaded", icon: r.cover});
+            new Notification(this.__.t.dlfinished, {title: this.__.t.dlfinished, body: r.title + " " + this.__.t.dlfrom + " " + r.artistName + " " + this.__.t.dldownloaded, icon: r.cover});
           }
         }
       }
@@ -137,12 +138,12 @@ export class Alltomp3Service {
       }, 0);
       let numberSongs = mainr.subrequests.length;
 
-      mainr.artistName = numberFinished + " / " + numberSongs + " songs";
+      mainr.artistName = numberFinished + " / " + numberSongs + " " + this.__.t.songs;
       if (numberSongs == numberFinished) {
         mainr.finished = true;
         this.numberActive--;
         if (!electron.remote.getCurrentWindow().isFocused()) {
-          new Notification("Download finished", {title: "Download finished", body: mainr.title + " from " + mainr.originalArtistName + " has been downloaded", icon: mainr.cover});
+          new Notification(this.__.t.dlfinished, {title: this.__.t.dlfinished, body: mainr.title + " " + this.__.t.dlfrom + " " + mainr.originalArtistName + " " + this.__.t.dldownloaded, icon: mainr.cover});
         }
       }
     }

@@ -208,6 +208,7 @@ ipcMain.on('feedback.launch', (event, infos) => {
       infos.perrors = util.inspect(perrors);
       infos.errors = util.inspect(infos.errors);
       infos.screenshot = image.toPNG().toString('base64');
+      infos.locale = app.getLocale();
       let infosify = JSON.stringify(infos);
       feedbackWin.webContents.send('feedback.infos', infosify);
     });
@@ -229,24 +230,30 @@ ipcMain.on('feedback.launch', (event, infos) => {
   });
 });
 
-var template = [{
-    label: "AllToMP3",
-    submenu: [
-        { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
-        { type: "separator" },
-        { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
-    ]}, {
-    label: "Edit",
-    submenu: [
-        { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
-        { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
-        { type: "separator" },
-        { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
-        { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
-        { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
-        { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
-    ]}
-];
+let menuTexts = {
+  en: {
+    about: 'About',
+    quit: 'Quit',
+    edit: 'Edit',
+    undo: 'Undo',
+    redo: 'Redo',
+    cut: 'Cut',
+    copy: 'Copy',
+    paste: 'Paste',
+    selectAll: 'Select All'
+  },
+  fr: {
+    about: 'À propos',
+    quit: 'Quitter',
+    edit: 'Édition',
+    undo: 'Annuler',
+    redo: 'Répéter',
+    cut: 'Couper',
+    copy: 'Copier',
+    paste: 'Coller',
+    selectAll: 'Tout sélectionner'
+  }
+};
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -256,6 +263,11 @@ function createWindow () {
   let locale = app.getLocale();
   locale = locale.split('-')[0];
   alltomp3.regionCode = locale.toUpperCase();
+  let supportedLocales = ['en', 'fr'];
+  let supportedLocale = 'en';
+  if (supportedLocales.indexOf(locale) > -1) {
+    supportedLocale = locale;
+  }
 
   // Create the browser window.
   win = new BrowserWindow({width: 400, height: 700})
@@ -265,7 +277,7 @@ function createWindow () {
     win.loadURL('http://localhost:4200');
   } else {
     win.loadURL(url.format({
-      pathname: path.join(__dirname, 'app/dist/index.html'),
+      pathname: path.join(__dirname, 'app/dist/' + supportedLocale + '/index.html'),
       protocol: 'file:',
       slashes: true
     }));
@@ -284,6 +296,27 @@ function createWindow () {
     // when you should delete the corresponding element.
     win = null
   });
+
+  let menuText = menuTexts[supportedLocale];
+
+  let template = [{
+      label: "AllToMP3",
+      submenu: [
+          { label: menuText.about, selector: "orderFrontStandardAboutPanel:" },
+          { type: "separator" },
+          { label: menuText.quit, accelerator: "Command+Q", click: function() { app.quit(); }}
+      ]}, {
+      label: menuText.edit,
+      submenu: [
+          { label: menuText.undo, accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+          { label: menuText.redo, accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+          { type: "separator" },
+          { label: menuText.cut, accelerator: "CmdOrCtrl+X", selector: "cut:" },
+          { label: menuText.copy, accelerator: "CmdOrCtrl+C", selector: "copy:" },
+          { label: menuText.paste, accelerator: "CmdOrCtrl+V", selector: "paste:" },
+          { label: menuText.selectAll, accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+      ]}
+  ];
 
   if (os.platform() == 'darwin') {
     Menu.setApplicationMenu(Menu.buildFromTemplate(template));
