@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'entypo';
-  src: url('../font/entypo.eot?8918646');
-  src: url('../font/entypo.eot?8918646#iefix') format('embedded-opentype'),
-       url('../font/entypo.woff2?8918646') format('woff2'),
-       url('../font/entypo.woff?8918646') format('woff'),
-       url('../font/entypo.ttf?8918646') format('truetype'),
-       url('../font/entypo.svg?8918646#entypo') format('svg');
+  src: url('../font/entypo.eot?34335183');
+  src: url('../font/entypo.eot?34335183#iefix') format('embedded-opentype'),
+       url('../font/entypo.woff2?34335183') format('woff2'),
+       url('../font/entypo.woff?34335183') format('woff'),
+       url('../font/entypo.ttf?34335183') format('truetype'),
+       url('../font/entypo.svg?34335183#entypo') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'entypo';
-    src: url('../font/entypo.svg?8918646#entypo') format('svg');
+    src: url('../font/entypo.svg?34335183#entypo') format('svg');
   }
 }
 */
@@ -120,3 +120,20 @@
 .icon-video:before { content: '\e83e'; } /* '' */
 .icon-vinyl:before { content: '\e83f'; } /* '' */
 .icon-warning:before { content: '\e840'; } /* '' */
+.icon-app-store:before { content: '\e841'; } /* '' */
+.icon-facebook-with-circle:before { content: '\e842'; } /* '' */
+.icon-facebook:before { content: '\e843'; } /* '' */
+.icon-github-with-circle:before { content: '\e844'; } /* '' */
+.icon-grooveshark:before { content: '\e845'; } /* '' */
+.icon-mail-with-circle:before { content: '\e846'; } /* '' */
+.icon-soundcloud:before { content: '\e847'; } /* '' */
+.icon-spotify-with-circle:before { content: '\e848'; } /* '' */
+.icon-spotify:before { content: '\e849'; } /* '' */
+.icon-vimeo-with-circle:before { content: '\e84a'; } /* '' */
+.icon-vimeo:before { content: '\e84b'; } /* '' */
+.icon-windows-store:before { content: '\e84c'; } /* '' */
+.icon-youtube-with-circle:before { content: '\e84d'; } /* '' */
+.icon-youtube:before { content: '\e84e'; } /* '' */
+.icon-github:before { content: '\e84f'; } /* '' */
+.icon-deezer-square:before { content: '\e850'; } /* '' */
+.icon-deezer:before { content: '\e851'; } /* '' */
