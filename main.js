@@ -260,9 +260,13 @@ let menuTexts = {
 let win
 
 function createWindow () {
-  let locale = app.getLocale();
-  locale = locale.split('-')[0];
-  alltomp3.regionCode = locale.toUpperCase();
+  let locales = app.getLocale().split('-');
+  let locale = locales[0];
+  if (locales.length == 2) {
+    alltomp3.regionCode = locales[1];
+  } else {
+    alltomp3.relevanceLanguage = locale;
+  }
   let supportedLocales = ['en', 'fr'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
