@@ -93,7 +93,10 @@ export class AppComponent {
     if (type  == 'single-url') {
       this.alltomp3.downloadSingleURL(this.lastQuery);
       this.init();
-    } else if (type == 'playlist-url') {
+  } else if (type  == 'track-url') {
+    this.alltomp3.downloadTrackURL(this.lastQuery);
+    this.init();
+  } else if (type == 'playlist-url') {
       this.alltomp3.downloadPlaylist(this.lastQuery);
       this.init();
     } else if (this.activeSuggestion >= 0) {

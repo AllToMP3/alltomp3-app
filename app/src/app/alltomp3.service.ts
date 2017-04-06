@@ -222,4 +222,24 @@ export class Alltomp3Service {
     return id;
   }
 
+  public downloadTrackURL(url: string):string {
+    let id = this.randomString(10);
+    this.requests.unshift({
+      query: url,
+      id: id,
+      status: 'launched',
+      title: url,
+      progress: 0
+    });
+    this.numberActive++;
+    this.db.getSavingPath().then(p => {
+      electron.ipcRenderer.send('at3.downloadTrackURL', {
+        url: url,
+        folder: p,
+        id: id
+      });
+    });
+    return id;
+  }
+
 }

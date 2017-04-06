@@ -162,6 +162,18 @@ ipcMain.on('at3.downloadTrack', (event, q) => {
 });
 /**
 * q = {
+* url: 'track url',
+* folder: 'folder where downloading the song',
+* id: 'identifier choosen by the renderer to identify this download'
+* }
+*/
+ipcMain.on('at3.downloadTrackURL', (event, q) => {
+  console.log('[AT3] downloadTrackURL', q);
+  let e = alltomp3.downloadTrackURL(q.url, q.folder);
+  forwardEvents(e, event.sender, q.id);
+});
+/**
+* q = {
 * url: 'playlist URL',
 * folder: 'folder where downloading the playlist',
 * id: 'identifier choosen by the renderer to identify this download'
