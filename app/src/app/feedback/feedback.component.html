@@ -2,10 +2,11 @@
   <div class="feedback-btn clickable" (click)="wantFeedback()" i18n>
     Any comment, idea, suggestion, or bug?
   </div>
-  <div class="update-btn" (click)="installUpdate()" *ngIf="updateAvailable" [ngClass]="{'clickable': (alltomp3.numberActive === 0)}">
+  <div class="update-btn" (click)="installUpdate()" *ngIf="updateAvailable" [ngClass]="{'clickable': (updateDownloaded && alltomp3.numberActive === 0)}">
     <div class="tooltip">
-      <i class="icon-cycle"></i>
-      <span class="tooltiptext" i18n>An update has been downloaded and will be installed at the next app launch<span *ngIf="alltomp3.numberActive === 0">, or click to relaunch the app now</span></span>
+      <div [ngClass]="{'rotating': !updateDownloaded}"><i class="icon-cycle"></i></div>
+      <span class="tooltiptext" i18n *ngIf="!updateDownloaded">An update is downloading</span>
+      <span class="tooltiptext" i18n *ngIf="updateDownloaded">An update has been downloaded and will be installed at the next app launch<span *ngIf="alltomp3.numberActive === 0">, or click to relaunch the app now</span></span>
     </div>
   </div>
 </div>

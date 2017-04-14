@@ -200,6 +200,9 @@ ipcMain.on('update.install', (event) => {
 autoUpdater.on('update-downloaded', () => {
   win.webContents.send('update.downloaded');
 });
+autoUpdater.on('update-available', () => {
+  win.webContents.send('update.available');
+});
 
 // Feedback
 let feedbackWin = null;

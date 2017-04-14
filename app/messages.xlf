@@ -45,6 +45,10 @@
   </source>
         <target/>
       </trans-unit>
+      <trans-unit id="ebe2bb19fa701cc947a95c6fa07249a8e0965fa7" datatype="html">
+        <source>An update is downloading</source>
+        <target/>
+      </trans-unit>
       <trans-unit id="6470eedcfc4085470c43c2de67e8b738f797a226" datatype="html">
         <source>An update has been downloaded and will be installed at the next app launch<x id="START_TAG_SPAN" ctype="x-span"/>, or click to relaunch the app now<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
         <target/>

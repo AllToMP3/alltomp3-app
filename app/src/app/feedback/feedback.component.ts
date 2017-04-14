@@ -13,9 +13,13 @@ export class FeedbackComponent implements OnInit {
 
   loggerError = this.injector.get(ErrorHandler);
   updateAvailable:boolean = false;
+  updateDownloaded:boolean = false;
 
   constructor(private alltomp3: Alltomp3Service, private logger: LoggerService, private injector: Injector) {
-    electron.ipcRenderer.on('update.downloaded', () => {
+    electron.ipcRenderer.once('update.downloaded', () => {
+      this.updateDownloaded = true;
+    });
+    electron.ipcRenderer.once('update.available', () => {
       this.updateAvailable = true;
     });
   }
@@ -30,7 +34,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   public installUpdate() {
-    if (this.alltomp3.numberActive === 0) {
+    if (this.updateDownloaded && this.alltomp3.numberActive === 0) {
       electron.ipcRenderer.send('update.install');
     }
   }

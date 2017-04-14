@@ -24,3 +24,14 @@
   text-align: center;
   padding: 2px;
 }
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.rotating {
+  animation: rotating 2s linear infinite;
+}
