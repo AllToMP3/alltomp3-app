@@ -113,7 +113,7 @@ function forwardEvent(name, sender, id, allData) {
     });
   }
 }
-ipcMain.on('at3.suggestions', (event, q) => {
+ipcMain.on('at3.suggestions', (event, id, q) => {
   console.log('[AT3] suggestions', q);
   let type = alltomp3.typeOfQuery(q);
   if (type == 'text') {
@@ -121,19 +121,19 @@ ipcMain.on('at3.suggestions', (event, q) => {
       alltomp3.suggestedSongs(q, 5),
       alltomp3.suggestedAlbums(q, 5),
     ]).then(suggestions => {
-      event.returnValue = {
+      event.sender.send('at3.answer.' + id, {
         type: type,
         suggestions: {
           songs: suggestions[0],
           albums: suggestions[1]
         }
-      };
+      });
     });
   } else {
-    event.returnValue = {
+    event.sender.send('at3.answer.' + id, {
       type: type,
       urlType: alltomp3.guessURLType(q)
-    };
+    });
   }
 });
 /**

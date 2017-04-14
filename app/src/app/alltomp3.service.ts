@@ -45,9 +45,12 @@ export class Alltomp3Service {
   private query(action:string, data):Promise<any> {
     this.logger.log('[AT3]', action, data);
     return new Promise((resolve, reject) => {
-      let v = electron.ipcRenderer.sendSync('at3.' + action, data);
-      this.logger.log('[AT3]', 'answer', v);
-      resolve(v);
+      let id = this.randomString(10);
+      electron.ipcRenderer.send('at3.' + action, id, data);
+      electron.ipcRenderer.once('at3.answer.' + id, (event, v) => {
+        this.logger.log('[AT3]', 'answer', v);
+        resolve(v);
+      });
     });
   }
 
