@@ -20,6 +20,11 @@ label {
 }
 input {
   width: 100%;
+  font-family: 'Source Sans Pro';
+}
+textarea {
+  font-family: 'Source Sans Pro';
+  font-size: 1em;
 }
 h1 {
   text-align: center;
