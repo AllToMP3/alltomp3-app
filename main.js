@@ -65,9 +65,9 @@ db.config.findOne({ name: 'saving-path' }).then(conf => {
   }
   return conf
 });
-db.config.findOne({ name: 'help-displayed' }).then(helpDisplayed => {
+db.config.findOne({ name: 'help-displayedn' }).then(helpDisplayed => {
   if (!helpDisplayed) {
-    return db.config.insert({ name: 'help-displayed', value: false });
+    return db.config.insert({ name: 'help-displayedn', value: 0 });
   }
 });
 

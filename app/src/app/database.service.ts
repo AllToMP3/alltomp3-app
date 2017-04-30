@@ -8,7 +8,7 @@ export class DatabaseService {
   // Paths
   public userPath: string;
   private savingPathP: Promise<any>;
-  private helpDisplayedP: Promise<any>;
+  private helpDisplaynP: Promise<any>;
 
   constructor(private logger: LoggerService) {
     this.reloadSavingPath();
@@ -20,7 +20,7 @@ export class DatabaseService {
     this.savingPathP = this.findOne('config', { name: 'saving-path' });
   }
   private reloadHelpDisplayed() {
-    this.helpDisplayedP = this.findOne('config', { name: 'help-displayed' });
+    this.helpDisplaynP = this.findOne('config', { name: 'help-displayedn' });
   }
 
   private dbQuery(action:string, data):Promise<any> {
@@ -54,11 +54,11 @@ export class DatabaseService {
     return this.update('config', { name: 'saving-path' }, { $set: { value: path } }).then(() => this.reloadSavingPath());
   }
 
-  public getHelpDisplayed():Promise<boolean> {
-    return this.helpDisplayedP.then(p => p.value);
+  public getHelpDisplayed():Promise<number> {
+    return this.helpDisplaynP.then(p => p.value);
   }
-  public setHelpDisplayed(value: boolean):Promise<any> {
-    return this.update('config', { name: 'help-displayed' }, { $set: { value: value } }).then(() => this.reloadHelpDisplayed());
+  public setHelpDisplayed(value: number):Promise<any> {
+    return this.update('config', { name: 'help-displayedn' }, { $set: { value: value } }).then(() => this.reloadHelpDisplayed());
   }
 
 }

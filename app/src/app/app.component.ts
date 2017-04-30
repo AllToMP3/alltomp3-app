@@ -34,14 +34,31 @@ export class AppComponent {
     'shape of you',
     'petit biscuit sunset',
   ];
+  helpProposalsURLs:string[] = [
+    'https://youtube.com/watch?v=IhP3J0j9JmY',
+    'https://soundcloud.com/overwerk/daybreak',
+    'https://deezer.com/album/14880539',
+    'https://open.spotify.com/album/7zuqkqhGkTH3PSdywhLgY4',
+  ];
+  helpProposalsSongs:string[] = [
+    'coldplay paradise',
+    'lorde',
+    'ed sheeran',
+    'on top of the world',
+  ];
   currentProposal:number = 0; // the proposal displayed in placeholder
+  displayHelpn:number = 0;
   displayHelp:boolean = false;
+  displayHelpMax:number = 2;
 
   constructor(private alltomp3: Alltomp3Service, private db: DatabaseService) {
     this.requests = alltomp3.requests;
 
-    this.db.getHelpDisplayed().then(helpDisplayed => {
-      this.displayHelp = !helpDisplayed;
+    this.db.getHelpDisplayed().then(helpDisplay => {
+      this.displayHelpn = helpDisplay;
+      if (helpDisplay < this.displayHelpMax) {
+        this.displayHelp = true;
+      }
     });
 
     setInterval(() => { this.changePlaceholder.apply(this)}, 5000);
@@ -123,9 +140,10 @@ export class AppComponent {
   }
 
   public hideHelp() {
-    if (this.displayHelp) {
-      this.displayHelp = false;
-      this.db.setHelpDisplayed(true);
+    this.displayHelp = false;
+    if (this.displayHelpn < 2) {
+      this.displayHelpn += 1;
+      this.db.setHelpDisplayed(this.displayHelpn);
     }
   }
 

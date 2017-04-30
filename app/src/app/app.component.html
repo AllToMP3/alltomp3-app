@@ -31,13 +31,28 @@
     <app-request *ngFor="let r of requests" [request]="r"></app-request>
   </div>
 
-  <div class="help-div" *ngIf="displayHelp" i18n>
-    AllToMP3 is a tool to <b>download music</b> from YouTube, SoundCloud, Deezer in <b>MP3</b> with tags (title, artist, genre...), cover and lyrics.<br /><br />
-    In the <b>input field</b> you can enter things like:
-    <ul>
-      <li *ngFor="let proposal of helpProposals.slice(0, 5)" (click)="selectProposal(proposal)">{{ proposal }}</li>
-    </ul>
-    Don't hesitate to use the <b>button below</b> to signal any <b>bug</b>, problem, or if you have an idea or a <b>suggestion</b>!
+  <div class="help-div" *ngIf="displayHelp">
+    <div class="help-div-arrow">
+      <div class="arrow thisarrow"></div>
+    </div>
+    <div class="help-div-title" i18n>Enter:</div>
+    <div class="help-div-container">
+      <div class="help-div-possibility">
+        <div class="possibility-title" i18n>Songs</div>
+        <ul>
+          <li *ngFor="let proposal of helpProposalsSongs" (click)="selectProposal(proposal)">{{ proposal }}</li>
+        </ul>
+      </div>
+      <div class="help-div-sep-div">
+        <div class="help-div-sep-title" i18n>OR</div>
+      </div>
+      <div class="help-div-possibility">
+        <div class="possibility-title">URLs</div>
+        <ul>
+          <li *ngFor="let proposal of helpProposalsURLs" (click)="selectProposal(proposal)">{{ proposal }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 

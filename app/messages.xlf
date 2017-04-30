@@ -18,15 +18,16 @@
     </source>
         <target/>
       </trans-unit>
-      <trans-unit id="684a27e93212734faa07db9adb57fafec1775d74" datatype="html">
-        <source>
-    AllToMP3 is a tool to <x id="START_BOLD_TEXT" ctype="x-b"/>download music<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> from YouTube, SoundCloud, Deezer in <x id="START_BOLD_TEXT" ctype="x-b"/>MP3<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> with tags (title, artist, genre...), cover and lyrics.<x id="LINE_BREAK" ctype="lb"/><x id="LINE_BREAK" ctype="lb"/>
-    In the <x id="START_BOLD_TEXT" ctype="x-b"/>input field<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> you can enter things like:
-    <x id="START_UNORDERED_LIST" ctype="x-ul"/>
-      <x id="START_LIST_ITEM" ctype="x-li"/><x id="INTERPOLATION"/><x id="CLOSE_LIST_ITEM" ctype="x-li"/>
-    <x id="CLOSE_UNORDERED_LIST" ctype="x-ul"/>
-    Don&apos;t hesitate to use the <x id="START_BOLD_TEXT" ctype="x-b"/>button below<x id="CLOSE_BOLD_TEXT" ctype="x-b"/> to signal any <x id="START_BOLD_TEXT" ctype="x-b"/>bug<x id="CLOSE_BOLD_TEXT" ctype="x-b"/>, problem, or if you have an idea or a <x id="START_BOLD_TEXT" ctype="x-b"/>suggestion<x id="CLOSE_BOLD_TEXT" ctype="x-b"/>!
-  </source>
+      <trans-unit id="50e3f27de710efc3623c4b6a46abe14199b6582a" datatype="html">
+        <source>Enter:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="a37cfde66e15101d640de7b86c995cd65b18f8ec" datatype="html">
+        <source>Songs</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="63f5d0ec23e3cf4abf6d5221107633c90d8d4a15" datatype="html">
+        <source>OR</source>
         <target/>
       </trans-unit>
       <trans-unit id="2d85c24d82d4323a3ef4302294917093ec3487e5" datatype="html">
