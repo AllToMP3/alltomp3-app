@@ -2,7 +2,13 @@
   <div class="request--icon" [ngStyle]="{'background-image': 'url(' + request.cover + ')'}">
     <div class="request--progress--div" (mouseenter)="coverMouseEnter()" (mouseleave)="coverMouseLeave()" [ngClass]="{'clickable': (abortable || openable()), 'displayed': (!request.finished || (coverOver && openable()))}">
       <div *ngIf="!request.finished">
-        <div class="request--progress" *ngIf="!abortable || !coverOver">{{ request.progress }}%</div>
+        <div class="request--progress" *ngIf="!abortable || !coverOver">
+          <svg viewbox="0 0 84 84" style="display: block; height: 84px; width: 84px; margin: -2px;">
+            <path fill="none" stroke-linecap="round" stroke-width="4" stroke="#fff"
+              [attr.d]="'M42 2 A 40 40 0 ' + pz() + ' 1 ' + px() + ' ' + py()">
+            </path>
+          </svg>
+        </div>
         <div class="request--abort" (click)="abort()" *ngIf="abortable && coverOver">
           <div class="abort--icon">
             <i class="icon-cross"></i>
@@ -27,8 +33,19 @@
     <div class="request--title">{{ request.title }}</div>
     <div class="request--artist">{{ request.artistName }}</div>
     <div class="request--length">{{ request.length }}</div>
+
+    <div *ngIf="request.playlist && !subOpened" (click)="subOpened = true" class="request-subs-open" i18n>
+      See the list
+    </div>
+    <div *ngIf="request.playlist && subOpened" (click)="subOpened = false" class="request-subs-open request-subs-opened" i18n>
+      Hide the list
+    </div>
+    <div *ngIf="subOpened">
+      <div *ngFor="let r of request.subrequests">
+        <div *ngIf="!r.aborted" class="request--sub" [ngClass]="{'request--sub--running': !r.finished}" [ngStyle]="{'background-image': (!r.finished && '-webkit-linear-gradient(0deg, white, white ' + r.progress + '%, #666 ' + r.progress + '%, #666)' || 'none')}">
+          {{ r.title }}
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div *ngIf="subOpened && !request.aborted">
-  <app-request *ngFor="let r of request.subrequests" [request]="r" [abortable]="false"></app-request>
 </div>

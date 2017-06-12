@@ -15,8 +15,12 @@ body {
   padding-bottom: 30px;
 }
 .legend {
-  font-size: 14px;
-  color: #ddd;
+  font-size: 12px;
+  color: #888;
+  font-weight: 100;
+  margin-top: 4px;
+  margin-left: 16px;
+  font-style: italic;
 }
 .label {
   display: inline-block;
@@ -51,9 +55,9 @@ body {
   position: absolute;
   z-index: 1;
 
-  bottom: 110%;
+  top: 125%;
   left: 50%;
-  margin-left: -260px;
+  margin-left: -257px;
 
   opacity: 0;
 
@@ -70,10 +74,10 @@ body {
 .tooltip .tooltiptext::after {
   content: " ";
   position: absolute;
-  top: 100%; /* At the bottom of the tooltip */
+  bottom: 100%; /* At the bottom of the tooltip */
   left: 95%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-color: transparent transparent black transparent;
 }

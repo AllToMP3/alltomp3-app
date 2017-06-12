@@ -1,6 +1,6 @@
 <div class="feedback-div">
-  <div class="feedback-btn clickable" (click)="wantFeedback()" i18n>
-    Any comment, idea, suggestion, or bug?
+  <div class="feedback-btn clickable" (click)="wantFeedback()">
+    <i class="icon-mail"></i>
   </div>
   <div class="update-btn" (click)="installUpdate()" *ngIf="updateAvailable" [ngClass]="{'clickable': (updateDownloaded && alltomp3.numberActive === 0)}">
     <div class="tooltip">

@@ -1,12 +1,18 @@
 .suggestion {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #ff8a65;
+  padding: 8px;
   cursor: pointer;
+  background-color: #1a1a1a;
+  color: white;
+  font-weight: 200;
+  font-size: 14px;
 }
 .suggestion--active {
   background-color: #222;
 }
 .suggestion:hover {
   background-color: #222;
+}
+.suggestion--last {
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }

@@ -1,17 +1,20 @@
 <div class="body">
-  <h1 class="title">
-    AllToMP3
-  </h1>
-  <div class="subtitle">
-    <i class="icon-youtube"></i>
-    <i class="icon-soundcloud"></i>
-    <i class="icon-spotify"></i>
-    <i class="icon-deezer"></i>
+  <div class="header">
+    <div class="header-title">AllToMP3</div>
+    <div class="header-logos">
+      <i class="icon-youtube"></i>
+      <i class="icon-soundcloud"></i>
+      <i class="icon-spotify"></i>
+      <i class="icon-deezer"></i>
+    </div>
+    <div class="header-contact">
+      <app-feedback></app-feedback>
+    </div>
   </div>
 
   <div class="input-div">
     <form method="post" (submit)="execute($event)">
-      <input type="text" class="input-main" id="input-main" i18n-placeholder placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" autofocus="autofocus" />
+      <input type="text" class="input-main" id="input-main" i18n-placeholder placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" autofocus="autofocus" [ngClass]="{'input-main-open': (suggestions.songs || suggestions.albums)}" />
       <button type="submit" style="display: none"></button>
     </form>
     <div class="legend" *ngIf="unsupported" i18n>
@@ -21,8 +24,8 @@
       Press <span class="label">Enter</span> to download
     </div>
     <div *ngIf="suggestions.songs || suggestions.albums">
-      <app-suggestion *ngFor="let suggestion of suggestions.songs; let i = index" [suggestion]="suggestion" [type]="'track'" (click)="selectSuggestion(suggestion, 'track')" [active]="i == activeSuggestion"></app-suggestion>
-      <app-suggestion *ngFor="let suggestion of suggestions.albums; let i = index" [suggestion]="suggestion" [type]="'album'" (click)="selectSuggestion(suggestion, 'album')" [active]="i == (activeSuggestion - suggestions.songs.length)"></app-suggestion>
+      <app-suggestion *ngFor="let suggestion of suggestions.songs; let i = index" [suggestion]="suggestion" [type]="'track'" (click)="selectSuggestion(suggestion, 'track')" [active]="i === activeSuggestion"></app-suggestion>
+      <app-suggestion *ngFor="let suggestion of suggestions.albums; let i = index; let l = last" [suggestion]="suggestion" [type]="'album'" (click)="selectSuggestion(suggestion, 'album')" [active]="i === (activeSuggestion - suggestions.songs.length)" [last]="l"></app-suggestion>
     </div>
     <saving-path></saving-path>
   </div>
@@ -55,5 +58,3 @@
     </div>
   </div>
 </div>
-
-<app-feedback></app-feedback>

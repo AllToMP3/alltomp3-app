@@ -3,6 +3,27 @@
   margin: 0 auto;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-title {
+  color: #ff8a65;
+  font-weight: 400;
+  font-size: 24px;
+}
+.header-logos {
+  color: #ff8a65;
+  text-align: center;
+}
+.header-contact {
+  color: #ff8a65;
+  text-align: center;
+}
+
 .title {
   text-align: center;
   margin-bottom: 0px;
@@ -15,17 +36,26 @@
   margin: 20px;
 }
 .input-main {
-  width: calc(100% - 2px);
-  background: none;
-  border-top: none;
-  border-left: none;
-  border-bottom: 1px solid #ff8a65;
-  padding: 1px;
+  width: calc(100% - 32px);
+  background-color: #1a1a1a;
+  border: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
   color: white;
-  height: 30px;
+  height: 22px;
+  border-radius: 15px;
   border-right: none;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'TypoPRO Source Sans Pro';
+  font-weight: 200;
+}
+.input-main.input-main-open {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 .input-main:focus {
   outline: none;

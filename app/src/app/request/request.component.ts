@@ -26,8 +26,12 @@ export class RequestComponent implements OnInit {
     if (!this.abortable) {
       return;
     }
-    this.alltomp3.abort(this.request.id);
-    this.request.aborted = true;
+    this.abortr(this.request);
+  }
+
+  public abortr(request: any) {
+    this.alltomp3.abort(request.id);
+    request.aborted = true;
   }
 
   public coverMouseEnter() {
@@ -38,9 +42,7 @@ export class RequestComponent implements OnInit {
   }
 
   public clickRequest() {
-    if (this.request.playlist) {
-      this.subOpened = !this.subOpened;
-    } else {
+    if (!this.request.playlist) {
       this.openFile();
     }
   }
@@ -52,7 +54,7 @@ export class RequestComponent implements OnInit {
   }
 
   public clickable():boolean {
-    return this.request.playlist || this.request.finished;
+    return this.request.finished && !this.request.playlist;
   }
 
   public openable():boolean {
@@ -72,6 +74,21 @@ export class RequestComponent implements OnInit {
     if (this.openable()) {
       openNext(this.request.subrequests.length - 1);
     }
+  }
+
+  public px() {
+    return Math.cos(Math.min(this.request.progress, 99.5)/100*2*Math.PI - Math.PI/2)*40 + 42;
+  }
+
+  public py() {
+    return Math.sin(Math.min(this.request.progress, 99.5)/100*2*Math.PI - Math.PI/2)*40 + 42;
+  }
+
+  public pz():string {
+    if (this.request.progress > 50) {
+      return '1';
+    }
+    return '0';
   }
 
   ngOnInit() {

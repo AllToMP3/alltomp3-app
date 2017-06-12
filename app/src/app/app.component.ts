@@ -65,10 +65,18 @@ export class AppComponent {
   }
 
   private changePlaceholder() {
-    document.getElementById('input-main').className = 'input-main fade';
+    if (this.suggestions.songs || this.suggestions.albums) {
+      document.getElementById('input-main').className = 'input-main input-main-open fade';
+    } else {
+      document.getElementById('input-main').className = 'input-main fade';
+    }
     setTimeout(() => {
       (<HTMLInputElement>document.getElementById('input-main')).placeholder = this.helpProposals[this.currentProposal++ % this.helpProposals.length];
-      document.getElementById('input-main').className = 'input-main';
+      if (this.suggestions.songs || this.suggestions.albums) {
+        document.getElementById('input-main').className = 'input-main input-main-open';
+      } else {
+        document.getElementById('input-main').className = 'input-main';
+      }
     }, 500);
   }
 

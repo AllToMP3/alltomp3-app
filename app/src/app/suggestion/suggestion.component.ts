@@ -15,9 +15,13 @@ export class SuggestionComponent implements OnInit {
   @Input()
   type: string;
 
-  // Is this selection selected by the user
+  // Is this suggestion selected by the user
   @Input()
   active: boolean;
+
+  // Is this suggestion the last one of the list
+  @Input()
+  last: boolean;
 
   constructor() { }
 
