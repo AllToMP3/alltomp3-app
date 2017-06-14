@@ -14,6 +14,8 @@ import { SavingPathComponent } from './saving-path/saving-path.component';
 import { RequestComponent } from './request/request.component';
 import { SuggestionComponent } from './suggestion/suggestion.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { HelpComponent } from './help/help.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
     SavingPathComponent,
     RequestComponent,
     SuggestionComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    HelpComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

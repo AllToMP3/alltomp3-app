@@ -22,18 +22,6 @@
       Appuyez sur <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> pour télécharger
     </target>
       </trans-unit>
-      <trans-unit id="50e3f27de710efc3623c4b6a46abe14199b6582a" datatype="html">
-        <source>Enter:</source>
-        <target>Entrez des :</target>
-      </trans-unit>
-      <trans-unit id="a37cfde66e15101d640de7b86c995cd65b18f8ec" datatype="html">
-        <source>Songs</source>
-        <target>Morceaux</target>
-      </trans-unit>
-      <trans-unit id="63f5d0ec23e3cf4abf6d5221107633c90d8d4a15" datatype="html">
-        <source>OR</source>
-        <target>OU</target>
-      </trans-unit>
       <trans-unit id="2d85c24d82d4323a3ef4302294917093ec3487e5" datatype="html">
         <source>Songs are downloaded in <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></source>
         <target>Les morceaux sont téléchargés dans <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></target>
@@ -70,6 +58,34 @@
       <trans-unit id="6470eedcfc4085470c43c2de67e8b738f797a226" datatype="html">
         <source>An update has been downloaded and will be installed at the next app launch<x id="START_TAG_SPAN" ctype="x-span"/>, or click to relaunch the app now<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
         <target>Une mise à jour a été téléchargée et sera installée au prochain lancement de l'application<x id="START_TAG_SPAN" ctype="x-span"/>, ou cliquez pour redémarrer l'application maintenant<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
+      </trans-unit>
+      <trans-unit id="50e3f27de710efc3623c4b6a46abe14199b6582a" datatype="html">
+        <source>Enter:</source>
+        <target>Entrez des :</target>
+      </trans-unit>
+      <trans-unit id="a37cfde66e15101d640de7b86c995cd65b18f8ec" datatype="html">
+        <source>Songs</source>
+        <target>Morceaux</target>
+      </trans-unit>
+      <trans-unit id="63f5d0ec23e3cf4abf6d5221107633c90d8d4a15" datatype="html">
+        <source>OR</source>
+        <target>OU</target>
+      </trans-unit>
+      <trans-unit id="dd7c39d13550b0fea7b5632d3d3348f0ebccbd95" datatype="html">
+        <source>
+  Update&apos;s changes
+</source>
+        <target>
+  Nouveautés
+</target>
+      </trans-unit>
+      <trans-unit id="4bb6f05816c16e1198e3a863fbc29e07542f4fec" datatype="html">
+        <source>
+  News
+</source>
+        <target>
+  Actualités
+</target>
       </trans-unit>
     </body>
   </file>

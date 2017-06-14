@@ -6,6 +6,7 @@ const nedb = require('nedb-promise');
 const util = require('util');
 const os = require('os');
 const ncp = require('ncp');
+const request = require('request');
 const alltomp3 = require('alltomp3');
 const VERSION = app.getVersion();
 const DEV = true;
@@ -63,14 +64,15 @@ db.config.findOne({ name: 'saving-path' }).then(conf => {
   if (!conf) {
     return db.config.insert({ name: 'saving-path', value: app.getPath('music') });
   }
-  return conf
+  return conf;
 });
+let firstLaunch = false;
 db.config.findOne({ name: 'help-displayedn' }).then(helpDisplayed => {
   if (!helpDisplayed) {
+    firstLaunch = true;
     return db.config.insert({ name: 'help-displayedn', value: 0 });
   }
 });
-
 
 // Messages so the renderer can query the database
 ipcMain.on('db.findOne', (event, arg) => {
@@ -88,6 +90,49 @@ ipcMain.on('db.update', (event, arg) => {
   });
 });
 
+ipcMain.on('app.ready', (event, arg) => {
+  db.config.findOne({ name: 'previous-version' }).then(previousVersion => {
+    if ((!firstLaunch && !previousVersion) || (previousVersion && previousVersion.value !== VERSION)) {
+      let pv;
+      if (previousVersion) {
+        pv = previousVersion.value;
+      } else {
+        pv = '0.2.5';
+      }
+      request({
+        uri: 'https://app.alltomp3.org/release-notes/' + pv + '/' + VERSION,
+        json: true
+      }, (e, r, releaseNotes) => {
+        if (!e && releaseNotes && releaseNotes.length > 0) {
+          event.sender.send('releasenotes', releaseNotes);
+        }
+      });
+    }
+    if (!previousVersion) {
+      db.config.insert({ name: 'previous-version', value: VERSION });
+    } else if (previousVersion !== VERSION) {
+      db.config.update({ name: 'previous-version' }, { name: 'previous-version', value: VERSION });
+    }
+  });
+
+  db.config.findOne({ name: 'last-news' }).then(lastNews => {
+    if (lastNews) {
+      request({
+        uri: 'https://app.alltomp3.org/news/' + os.platform() + '/' + VERSION + '/' + lastNews.value,
+        json: true
+      }, (e, r, news) => {
+        if (!e && news && news.length > 0) {
+          event.sender.send('news', news);
+        }
+      });
+    }
+    if (!lastNews) {
+      db.config.insert({ name: 'last-news', value: (new Date()).toISOString() });
+    } else {
+      db.config.update({ name: 'last-news' }, { name: 'last-news', value: (new Date()).toISOString() });
+    }
+  });
+});
 
 // alltomp3 library
 function forwardEvents(emitter, sender, id, allData) {
@@ -301,7 +346,6 @@ function createWindow () {
       slashes: true
     }));
   }
-
 
   // Open the DevTools.
   if (DEV) {

@@ -1,0 +1,103 @@
+.help-div-title {
+  text-align: center;
+  width: 65px;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding: 3px;
+  text-transform: uppercase;
+  color: #ff8a65;
+  font-weight: bold;
+  border-bottom: 1px solid white;
+  border-top: 1px solid #ff8a65;
+}
+.help-div-container {
+  display: flex;
+  flex-direction: row;
+}
+.help-div-possibility {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+.possibility-title {
+  text-align: center;
+  font-variant: small-caps;
+  color: #ff8a65;
+  margin-bottom: 10px;
+}
+.help-div-possibility ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.help-div-possibility li {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ff8a65;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  cursor: pointer;
+}
+.help-div-possibility li:hover {
+  background-color: #222;
+}
+.help-div-sep-div {
+  border-left: 1px solid white;
+  width: 1px;
+  flex-basis: 0;
+}
+.help-div-sep-title {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: #111;
+  text-align: center;
+  font-size: 10px;
+  padding: 4px;
+  left: -10px;
+  top: 10px;
+}
+.help-div-arrow {
+  text-align: center;
+}
+.arrow {
+  border-left: 1px solid #ff8a65;
+  display: block;
+}
+.arrow:before {
+  content: '';
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  background-color: #ff8a65;
+  display: block;
+  position: relative;
+  top: -4px;
+  left: -4px;
+}
+.arrow:after {
+  content: '';
+  height: 180px;
+  border-left: 1px solid #ff8a65;
+  display: block;
+  position: absolute;
+  bottom: -147px;
+  left: 68px;
+  transform: rotate(-50deg);
+}
+.thisarrow {
+  display: inline-block;
+  position: relative;
+  top: -50px;
+  left: -140px;
+  height: 60px;
+  /*transform: rotate(30deg);*/
+}

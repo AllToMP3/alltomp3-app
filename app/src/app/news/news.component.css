@@ -1,0 +1,23 @@
+.news {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+}
+.news-title {
+  font-weight: 100;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.news-content {
+  font-weight: 100;
+  font-size: 12px;
+}
+.news-header {
+  margin-top: 40px;
+  text-align: center;
+  color: #ff8a65;
+  font-weight: 100;
+  font-size: 20px;
+  margin-bottom: 20px;
+}

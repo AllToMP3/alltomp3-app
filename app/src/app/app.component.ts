@@ -34,18 +34,6 @@ export class AppComponent {
     'shape of you',
     'petit biscuit sunset',
   ];
-  helpProposalsURLs:string[] = [
-    'https://youtube.com/watch?v=IhP3J0j9JmY',
-    'https://soundcloud.com/overwerk/daybreak',
-    'https://deezer.com/album/14880539',
-    'https://open.spotify.com/album/7zuqkqhGkTH3PSdywhLgY4',
-  ];
-  helpProposalsSongs:string[] = [
-    'coldplay paradise',
-    'lorde',
-    'ed sheeran',
-    'on top of the world',
-  ];
   currentProposal:number = 0; // the proposal displayed in placeholder
   displayHelpn:number = 0;
   displayHelp:boolean = false;
@@ -61,7 +49,7 @@ export class AppComponent {
       }
     });
 
-    setInterval(() => { this.changePlaceholder.apply(this)}, 5000);
+    setInterval(() => { this.changePlaceholder.apply(this) }, 5000);
   }
 
   private changePlaceholder() {
@@ -90,10 +78,12 @@ export class AppComponent {
     this.activeSuggestion = 0;
   }
 
-  public selectProposal(proposal:string) {
-    this.queryi = proposal;
-    document.getElementById("input-main").focus();
-    this.processQuery();
+  public selectProposal() {
+    return (proposal) => {
+      this.queryi = proposal;
+      document.getElementById("input-main").focus();
+      this.processQuery();
+    };
   }
 
   public search(event:any) {

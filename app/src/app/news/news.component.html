@@ -1,0 +1,19 @@
+<div *ngIf="releaseNotes.length > 0" class="news-header" i18n>
+  Update's changes
+</div>
+<div *ngFor="let v of releaseNotes" class="news">
+  <div class="news-title">
+    Version {{ v.version }}
+  </div>
+  <div class="news-content" [innerHTML]="v.notes"></div>
+</div>
+
+<div *ngIf="news.length > 0" class="news-header" i18n>
+  News
+</div>
+<div *ngFor="let n of news" class="news">
+  <div class="news-title">
+    {{ n.title }}
+  </div>
+  <div class="news-content" [innerHTML]="n.content"></div>
+</div>

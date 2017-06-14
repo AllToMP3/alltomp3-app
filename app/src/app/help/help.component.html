@@ -1,0 +1,21 @@
+<div class="help-div-arrow">
+  <div class="arrow thisarrow"></div>
+</div>
+<div class="help-div-title" i18n>Enter:</div>
+<div class="help-div-container">
+  <div class="help-div-possibility">
+    <div class="possibility-title" i18n>Songs</div>
+    <ul>
+      <li *ngFor="let proposal of helpProposalsSongs" (click)="selectProposal(proposal)">{{ proposal }}</li>
+    </ul>
+  </div>
+  <div class="help-div-sep-div">
+    <div class="help-div-sep-title" i18n>OR</div>
+  </div>
+  <div class="help-div-possibility">
+    <div class="possibility-title">URLs</div>
+    <ul>
+      <li *ngFor="let proposal of helpProposalsURLs" (click)="selectProposal(proposal)">{{ proposal }}</li>
+    </ul>
+  </div>
+</div>

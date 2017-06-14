@@ -1,6 +1,6 @@
 {
   "name": "AllToMP3",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Download YouTube videos in MP3 with tags and lyrics",
   "main": "main.js",
   "repository": "git@github.com:AllToMP3/alltomp3-app.git",
@@ -11,7 +11,8 @@
     "alltomp3": "https://github.com/AllToMP3/alltomp3",
     "electron-updater": "^1.7.1",
     "ncp": "^2.0.0",
-    "nedb-promise": "^2.0.1"
+    "nedb-promise": "^2.0.1",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "electron": "^1.6.2",
