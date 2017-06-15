@@ -10,14 +10,28 @@ export class TransService {
       dlfinished: 'Téléchargement terminé',
       dlfrom: 'de',
       dldownloaded: 'a été téléchargé',
-      songs: 'morceaux'
+      songs: 'morceaux',
+      edit: 'Édition',
+      undo: 'Annuler',
+      redo: 'Répéter',
+      cut: 'Couper',
+      copy: 'Copier',
+      paste: 'Coller',
+      selectAll: 'Tout sélectionner'
     },
     en: {
       antivirus: 'An error occured. If you have an antivirus, try to deactivate it and try again. It may interfere with AllToMP3.',
       dlfinished: 'Download finished',
       dlfrom: 'from',
       dldownloaded: 'has been downloaded',
-      songs: 'songs'
+      songs: 'songs',
+      edit: 'Edit',
+      undo: 'Undo',
+      redo: 'Redo',
+      cut: 'Cut',
+      copy: 'Copy',
+      paste: 'Paste',
+      selectAll: 'Select All'
     }
   };
 

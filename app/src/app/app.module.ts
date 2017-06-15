@@ -8,6 +8,7 @@ import { Alltomp3Service } from './alltomp3.service';
 import { LoggerService } from './logger.service';
 import { LoggerErrorService } from './loggererror.service';
 import { TransService } from './trans.service';
+import { ContextMenuService } from './contextmenu.service';
 
 import { AppComponent } from './app.component';
 import { SavingPathComponent } from './saving-path/saving-path.component';
@@ -32,7 +33,14 @@ import { NewsComponent } from './news/news.component';
     FormsModule,
     HttpModule
   ],
-  providers: [DatabaseService, Alltomp3Service, TransService, LoggerService, {provide: ErrorHandler, useClass: LoggerErrorService}],
+  providers: [
+    DatabaseService,
+    Alltomp3Service,
+    TransService,
+    LoggerService,
+    ContextMenuService,
+    {provide: ErrorHandler, useClass: LoggerErrorService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

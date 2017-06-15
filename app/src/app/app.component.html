@@ -14,7 +14,7 @@
 
   <div class="input-div">
     <form method="post" (submit)="execute($event)">
-      <input type="text" class="input-main" id="input-main" i18n-placeholder placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" autofocus="autofocus" [ngClass]="{'input-main-open': (suggestions.songs || suggestions.albums)}" />
+      <input type="text" class="input-main" id="input-main" i18n-placeholder placeholder="What do you want to download?" (keydown)="search($event)" name="queryi" [(ngModel)]="queryi" autofocus="autofocus" [ngClass]="{'input-main-open': (suggestions.songs || suggestions.albums)}" (contextmenu)="contextMenu.openEditMenu()" />
       <button type="submit" style="display: none"></button>
     </form>
     <div class="legend" *ngIf="unsupported" i18n>

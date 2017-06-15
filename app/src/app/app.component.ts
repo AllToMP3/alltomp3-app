@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 declare var electron: any;
 import { Alltomp3Service } from './alltomp3.service';
 import { DatabaseService } from './database.service';
+import { ContextMenuService } from './contextmenu.service';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +40,7 @@ export class AppComponent {
   displayHelp:boolean = false;
   displayHelpMax:number = 2;
 
-  constructor(private alltomp3: Alltomp3Service, private db: DatabaseService) {
+  constructor(private alltomp3: Alltomp3Service, private db: DatabaseService, private contextMenu: ContextMenuService) {
     this.requests = alltomp3.requests;
 
     this.db.getHelpDisplayed().then(helpDisplay => {
