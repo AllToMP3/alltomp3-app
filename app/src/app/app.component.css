@@ -23,6 +23,10 @@
   color: #ff8a65;
   text-align: center;
 }
+.share-div {
+  display: inline-block;
+  cursor: pointer;
+}
 
 .title {
   text-align: center;

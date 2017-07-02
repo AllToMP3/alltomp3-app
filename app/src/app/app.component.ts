@@ -4,6 +4,7 @@ declare var electron: any;
 import { Alltomp3Service } from './alltomp3.service';
 import { DatabaseService } from './database.service';
 import { ContextMenuService } from './contextmenu.service';
+const Clipboard = require('clipboard');
 
 @Component({
   selector: 'app-root',
@@ -39,6 +40,8 @@ export class AppComponent {
   displayHelpn:number = 0;
   displayHelp:boolean = false;
   displayHelpMax:number = 2;
+  shareCopied:boolean = false; // if the link to AllToMP3 website has been copied
+  shareTimeout = undefined; // the timeout to change back the tooltip
 
   constructor(private alltomp3: Alltomp3Service, private db: DatabaseService, private contextMenu: ContextMenuService) {
     this.requests = alltomp3.requests;
@@ -51,6 +54,10 @@ export class AppComponent {
     });
 
     setInterval(() => { this.changePlaceholder.apply(this) }, 5000);
+  }
+
+  ngOnInit() {
+    new Clipboard('#share-btn');
   }
 
   private changePlaceholder() {
@@ -168,5 +175,18 @@ export class AppComponent {
       this.suggestions = {};
     }
     this.lastQuery = this.queryi;
+  }
+
+  public shareClick() {
+    this.shareCopied = true;
+  }
+  public shareLeave() {
+    if (this.shareTimeout || !this.shareCopied) {
+      return;
+    }
+    this.shareTimeout = setTimeout(() => {
+      this.shareCopied = false;
+      this.shareTimeout = undefined;
+    }, 1000);
   }
 }

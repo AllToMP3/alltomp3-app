@@ -1,4 +1,4 @@
-.feedback-btn, .update-btn {
+.feedback-div, .feedback-btn, .update-btn {
   display: inline-block;
 }
 @keyframes rotating {

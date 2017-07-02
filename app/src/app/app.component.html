@@ -8,6 +8,13 @@
       <i class="icon-deezer"></i>
     </div>
     <div class="header-contact">
+      <div id="share-btn" class="share-div" (click)="shareClick()" (mouseout)="shareLeave()" data-clipboard-text="https://alltomp3.org">
+        <div class="tooltip">
+          <i class="icon-export"></i>
+          <span class="tooltiptext" i18n *ngIf="!shareCopied">Click to copy a link to AllToMP3's website, to share it with friends 😎</span>
+          <span class="tooltiptext" i18n *ngIf="shareCopied">Copied in clipboard!</span>
+        </div>
+      </div>
       <app-feedback></app-feedback>
     </div>
   </div>

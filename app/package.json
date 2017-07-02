@@ -25,6 +25,7 @@
     "@angular/router": "^3.3.1",
     "@typopro/web-source-sans-pro": "^3.4.9",
     "@typopro/web-ubuntu": "^3.4.9",
+    "clipboard": "^1.7.1",
     "core-js": "^2.4.1",
     "lodash": "^4.17.4",
     "rxjs": "^5.0.1",

@@ -2,6 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="9109ad0a9567961340bbe9e831f23a8e1a0927ea" datatype="html">
+        <source>Click to copy a link to AllToMP3&apos;s website, to share it with friends 😎</source>
+        <target>Cliquez pour copier un lien vers le site d'AllToMP3, pour le partager avec vos amis 😎</target>
+      </trans-unit>
+      <trans-unit id="80f020c7add63ba8f1871563d1857a4773d7c225" datatype="html">
+        <source>Copied in clipboard!</source>
+        <target>Lien copié dans le presse-papier !</target>
+      </trans-unit>
       <trans-unit id="3f076ce994611c87527e4e17cc65916cda195966" datatype="html">
         <source>What do you want to download?</source>
         <target>Que voulez-vous télécharger ?</target>
