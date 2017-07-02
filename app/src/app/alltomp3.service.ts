@@ -38,7 +38,7 @@ export class Alltomp3Service {
       out = this.trailingZeros(Math.floor(duration/3600)) + ':';
     }
     out += this.trailingZeros(Math.floor((duration%3600)/60)) + ':';
-    out += this.trailingZeros(duration%60);
+    out += this.trailingZeros(Math.floor(duration%60));
     return out;
   }
 
