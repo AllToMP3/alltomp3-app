@@ -64,7 +64,7 @@ export class Alltomp3Service {
         if (yterror.match(/YouTube said/)) { // youtube-dl error
           yterror = yterror.replace(/^[\s\S]+YouTube said: .+\n(.+)\n$/g, '$1');
           r.artistName = yterror;
-        } else if (yterror === 'Error: spawn EPERM') {
+        } else if (yterror === 'Error: spawn EPERM' || yterror === 'spawn UNKNOWN' || yterror === 'Error: spawn UNKNOWN') {
           r.artistName = this.__.t.antivirus;
         }
       }
