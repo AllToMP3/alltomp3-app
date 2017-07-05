@@ -156,6 +156,7 @@ export class Alltomp3Service {
 
   public abort(id: string) {
     electron.ipcRenderer.send('at3.abort.' + id);
+    this.numberActive -= 1;
   }
 
   public suggestions(q: string):Promise<any> {
