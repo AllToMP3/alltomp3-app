@@ -17,7 +17,8 @@
   "devDependencies": {
     "electron": "^1.6.2",
     "electron-builder": "^15.4.3",
-    "electron-rebuild": "^1.5.7"
+    "electron-rebuild": "^1.5.7",
+    "unzip2": "^0.2.5"
   },
   "build": {
     "appId": "org.alltomp3.app",
@@ -72,7 +73,8 @@
   "scripts": {
     "pack": "build --dir",
     "dist": "build",
-    "release": "build"
+    "release": "build",
+    "postinstall": "node ./install.js"
   },
   "postinstall": "install-app-deps"
 }

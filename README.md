@@ -6,8 +6,9 @@ Desktop application with Electron for AllToMP3.
 Install the following requirements:
 - Node 7 + NPM (or yarn);
 - Electron (you must be able to execute the command `electron`);
-- [AllToMP3 requirements](https://github.com/AllToMP3/alltomp3#requirements);
 - [angular-cli](https://github.com/angular/angular-cli) (you must be able to execute the command `ng`).
+
+On Linux you will need [AllToMP3 requirements](https://github.com/AllToMP3/alltomp3#requirements) (ffmpeg, fpcalc, python)
 
 Then install the dependencies:
 ```bash
@@ -19,8 +20,12 @@ npm install
 ```
 
 ### Launching the app
-Currently, you have to go in the `app/` folder and execute `ng serve`.
-Then, in another terminal, in the main folder you execute `electron .` (it allows hot-reload of the Angular part).
+Go in the `app/` folder and execute `ng serve`.
+Then, in another terminal, in the main folder execute `electron .` (it allows hot-reload of the Angular part).
+
+### Building the app
+In the `main.js` file, you must set the variable `DEV` (around line 12) to `false`, to deactivate the web inspector and turn on auto-updates.
+Then simply run `npm run dist`. On macOS or Windows you will need a valid certificate so the application can be signed.
 
 ### Windows Warning
 If you have an antivirus, it may interfere with AllToMP3.
