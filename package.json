@@ -12,12 +12,14 @@
     "electron-updater": "^1.7.1",
     "ncp": "^2.0.0",
     "nedb-promise": "^2.0.1",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "sharp": "^0.19.0",
+    "youtube-dl": "^1.12.2"
   },
   "devDependencies": {
-    "electron": "^1.6.2",
+    "electron": "^1.8.2",
     "electron-builder": "^15.4.3",
-    "electron-rebuild": "^1.5.7",
+    "electron-rebuild": "^1.7.2",
     "unzip2": "^0.2.5"
   },
   "build": {
