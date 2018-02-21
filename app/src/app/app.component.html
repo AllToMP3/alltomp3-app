@@ -15,6 +15,12 @@
           <span class="tooltiptext" i18n *ngIf="shareCopied">Copied in clipboard!</span>
         </div>
       </div>
+      <div id="share-btn" class="share-div" (click)="donateClick()">
+        <div class="tooltip">
+          <i class="icon-heart"></i>
+          <span class="tooltiptext" i18n>Like this program? Help me!</span>
+        </div>
+      </div>
       <app-feedback></app-feedback>
     </div>
   </div>

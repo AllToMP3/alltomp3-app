@@ -189,4 +189,8 @@ export class AppComponent {
       this.shareTimeout = undefined;
     }, 1000);
   }
+
+  public donateClick() {
+    electron.remote.shell.openExternal('https://www.paypal.me/ntag');
+  }
 }
