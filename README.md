@@ -4,11 +4,15 @@
 
 You can download it here: https://alltomp3.org
 
+## Windows Warning
+If you have an antivirus, it may interfere with AllToMP3.
+If you encounter any problem, try to add an exception for AllToMP3 or to deactivate it.
+
 ## For developers
 ### Installation
 Install the following requirements:
-- Node 7 + NPM (or yarn);
-- Electron (you must be able to execute the command `electron`);
+- Node 9 + NPM (or yarn);
+- Electron 1.8.2 (you must be able to execute the command `electron`);
 - [angular-cli](https://github.com/angular/angular-cli) (you must be able to execute the command `ng`).
 
 On Linux you will need [AllToMP3 requirements](https://github.com/AllToMP3/alltomp3#requirements) (ffmpeg, fpcalc, python)
@@ -30,6 +34,9 @@ Then, in another terminal, in the main folder execute `electron .` (it allows ho
 In the `main.js` file, you must set the variable `DEV` (around line 12) to `false`, to deactivate the web inspector and turn on auto-updates.
 Then simply run `npm run dist`. On macOS or Windows you will need a valid certificate so the application can be signed.
 
-### Windows Warning
-If you have an antivirus, it may interfere with AllToMP3.
-If you encounter any problem, try to add an exception for AllToMP3 or to deactivate it.
+### Translations
+The app is available in English, French and Arabic.
+Contact me if you want to propose a new language :) .
+
+## Credits
+Arabic translation by: Esmail EL BoB | email: esmailelbob01124320019@gmail.com | Report wrong translation: http://bit.ly/2EVnQWr
