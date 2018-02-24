@@ -23,7 +23,6 @@ cd app
 npm install
 cd ..
 npm install
-./node_modules/.bin/electron-rebuild
 ```
 
 ### Launching the app
@@ -32,7 +31,13 @@ Then, in another terminal, in the main folder execute `electron .` (it allows ho
 
 ### Building the app
 In the `main.js` file, you must set the variable `DEV` (around line 12) to `false`, to deactivate the web inspector and turn on auto-updates.
-Then simply run `npm run dist`. On macOS or Windows you will need a valid certificate so the application can be signed.
+```
+cd app/
+./build.sh
+cd ../
+npm run dist
+```
+On macOS or Windows you will need a valid certificate so the application can be signed.
 
 ### Translations
 The app is available in English, French and Arabic.

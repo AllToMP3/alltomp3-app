@@ -9,7 +9,7 @@ const ncp = require('ncp');
 const request = require('request');
 const alltomp3 = require('alltomp3');
 const VERSION = app.getVersion();
-const DEV = true;
+const DEV = false;
 
 // autoUpdater
 if (!DEV && os.platform() != 'linux') {
@@ -327,7 +327,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr'];
+  let supportedLocales = ['en', 'fr', 'ar'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
