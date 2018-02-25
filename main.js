@@ -291,6 +291,17 @@ ipcMain.on('feedback.launch', (event, infos) => {
 });
 
 let menuTexts = {
+  ar: {
+    about: 'حول',
+    quit: 'ترك',
+    edit: 'تصحيح',
+    undo: 'فك',
+    redo: 'فعل ثانية',
+    cut: 'قص',
+    copy: 'مثال',
+    paste: 'معجون',
+    selectAll: 'اختر الكل'
+  },
   en: {
     about: 'About',
     quit: 'Quit',
