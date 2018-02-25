@@ -8,7 +8,7 @@
   "license": "GPL-2.0",
   "homepage": "https://alltomp3.org/",
   "dependencies": {
-    "alltomp3": "0.2.3",
+    "alltomp3": "0.2.4",
     "electron-updater": "^2.18.2",
     "ncp": "^2.0.0",
     "nedb-promise": "^2.0.1",
