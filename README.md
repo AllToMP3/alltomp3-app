@@ -50,10 +50,10 @@ You need basic knowledge of programming and using Github to create translation. 
 1. Duplicate some file in folder `/app/src/locale/` and change it's name to `messages.[TWO LETTER COUNTRY CODE].xlf` in your forked repository
 1. Modify `target` tags according to `source` tags in the file
 1. Save it
-1. Modify `/main.js` file (use find in next 2 steps)
- 1. Add your language in `menuTexts` object and translate it (duplicate it and modify), call object with your two letter country code
- 1. Add your language's two letter country code in `supportedLocales` array
- 1. Save it
+1. Modify `/main.js` file (use find in next 2 steps)  
+  1. Add your language in `menuTexts` object and translate it (duplicate it and modify), call object with your two letter country code
+  1. Add your language's two letter country code in `supportedLocales` array
+  1. Save it
 1. Create pull request
 
 ## Credits
