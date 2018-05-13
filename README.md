@@ -48,4 +48,4 @@ Contact me if you want to propose a new language :) .
 |Translation|Made by|Email|Report wrong translation|
 |---|---|---|---|
 |Arabic|Esmail EL BoB|esmailelbob01124320019@gmail.com|http://bit.ly/2EVnQWr|
-|Finnish|0x4d48|e4d48@outlook.com|via email|
+|Finnish|[0x4d48](https://github.com/0x4d48)|e4d48@outlook.com|via email|
