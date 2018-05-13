@@ -44,4 +44,8 @@ The app is available in English, French and Arabic.
 Contact me if you want to propose a new language :) .
 
 ## Credits
-Arabic translation by: Esmail EL BoB | email: esmailelbob01124320019@gmail.com | Report wrong translation: http://bit.ly/2EVnQWr
+
+|Translation|Made by|Email|Report wrong translation|
+|---|---|---|---|
+|Arabic|Esmail EL BoB|esmailelbob01124320019@gmail.com|http://bit.ly/2EVnQWr|
+|Finnish|0x4d48|e4d48@outlook.com|via email|
