@@ -40,7 +40,7 @@ npm run dist
 On macOS or Windows you will need a valid certificate so the application can be signed.
 
 ### Translations
-The app is available in English, French and Arabic.
+The app is available in English, French, Finnish and Arabic.
 Contact me if you want to propose a new language :) .
 
 ## Credits
