@@ -313,6 +313,17 @@ let menuTexts = {
     paste: 'Paste',
     selectAll: 'Select All'
   },
+  fi: {
+    about: 'Tietoa',
+    quit: 'Sulje',
+    edit: 'Muokkaa',
+    undo: 'Kumoa',
+    redo: 'Tee uudestaan',
+    cut: 'Leikkaa',
+    copy: 'Kopioi',
+    paste: 'Liitä',
+    selectAll: 'Valitse kaikki'
+  },
   fr: {
     about: 'À propos',
     quit: 'Quitter',
@@ -338,7 +349,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar'];
+  let supportedLocales = ['en', 'fr', 'ar', 'fi'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
