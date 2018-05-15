@@ -40,7 +40,7 @@ npm run dist
 On macOS or Windows you will need a valid certificate so the application can be signed.
 
 ### Translations
-The app is available in English, French and Arabic.
+The app is available in English, French, Finnish and Arabic.
 Contact me if you want to propose a new language :) .
 
 #### Translating
@@ -57,4 +57,8 @@ You need basic knowledge of programming and using Github to create translation. 
 1. Create pull request
 
 ## Credits
-Arabic translation by: Esmail EL BoB | email: esmailelbob01124320019@gmail.com | Report wrong translation: http://bit.ly/2EVnQWr
+
+|Translation|Made by|Email|Report wrong translation|
+|---|---|---|---|
+|Arabic|Esmail EL BoB|esmailelbob01124320019@gmail.com|http://bit.ly/2EVnQWr|
+|Finnish|[0x4d48](https://github.com/0x4d48)|e4d48@outlook.com|via email|
