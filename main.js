@@ -334,7 +334,17 @@ let menuTexts = {
     copy: 'Copier',
     paste: 'Coller',
     selectAll: 'Tout sélectionner'
-  }
+  },
+  ja: {
+    about: 'AllToMP3について',
+    quit: '終了',
+    edit: '編集',
+    undo: '元に戻す',
+    redo: 'やり直す',
+    cut: 'カット',
+    copy: 'コピー',
+    paste: '貼り付け',
+    selectAll: 'すべて選択'
 };
 
 // Keep a global reference of the window object, if you don't, the window will
