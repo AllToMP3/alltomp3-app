@@ -1,23 +1,23 @@
 # AllToMP3 <a href="https://packagecloud.io/"><img alt="Private Maven, RPM, DEB, PyPi and RubyGem Repository | packagecloud" height="46" src="https://packagecloud.io/images/packagecloud-badge.png" width="158" /></a>
 
-[AllToMP3](https://alltomp3.org) is a desktop application to download and convert YouTube, SoundCloud, Spotify and Deezer in 256 kb/s MP3, **with tags: cover, title, artist, genre, and even lyrics!**.
+[AllToMP3](https://alltomp3.org) は、YouTube、SoundCloud、Spotify、Deezerを256 kb/s MP3でダウンロードできるデスクトップアプリケーションです。 **タグ：カバー、タイトル、アーティスト、ジャンル、さらには歌詞！**
 
-You can download it here: https://alltomp3.org
+ここからダウンロード: https://alltomp3.org
 
-## Windows Warning
-If you have an antivirus, it may interfere with AllToMP3.
-If you encounter any problem, try to add an exception for AllToMP3 or to deactivate it.
+## Windowsでの注意事項
+ウイルス対策ソフトを使用している場合、AllToMP3に反応する場合があります。
+問題が発生した場合は、AllToMP3をホワイトリストを追加するか、ソフトを無効にしてみてください。
 
-## For developers
+## 開発者向け
 ### Installation
-Install the following requirements:
-- Node 9 + NPM (or yarn);
-- Electron 1.8.2 (you must be able to execute the command `electron`);
+動作環境:
+- Node 9 + NPM (または yarn);
+- Electron 1.8.2 (`electron`コマンドを実行できる必要があります);
 - [angular-cli](https://github.com/angular/angular-cli) (you must be able to execute the command `ng`).
 
-On Linux you will need [AllToMP3 requirements](https://github.com/AllToMP3/alltomp3#requirements) (ffmpeg, fpcalc, python)
+Linuxでは、 [AllToMP3 requirements](https://github.com/AllToMP3/alltomp3#requirements)が必要となります (ffmpeg, fpcalc, python)
 
-Then install the dependencies:
+インストール方法:
 ```bash
 cd app
 npm install
@@ -25,40 +25,40 @@ cd ..
 npm install
 ```
 
-### Launching the app
-Go in the `app/` folder and execute `ng serve`.
-Then, in another terminal, in the main folder execute `electron .` (it allows hot-reload of the Angular part).
+### アプリを起動する
+`app /`フォルダに移動し、 `ng serve`を実行します。
+次に、別の端末で、メインフォルダ内で`electron`を実行します（角部のホットリロードが可能です）.
 
-### Building the app
-In the `main.js` file, you must set the variable `DEV` (around line 12) to `false`, to deactivate the web inspector and turn on auto-updates.
+### アプリをビルドする
+`main.js`ファイルで、変数` DEV`（12行目）を `false`に設定して、Webインスペクタを無効にし、自動更新を有効にする必要があります。
 ```
 cd app/
 ./build.sh
 cd ../
 npm run dist
 ```
-On macOS or Windows you will need a valid certificate so the application can be signed.
+macOSまたはWindowsでは、アプリケーションに署名できるように有効な証明書が必要です.
 
-### Translations
-The app is available in English, French, Finnish and Arabic.
-Contact me if you want to propose a new language :) .
+### 翻訳
+このアプリは、英語、フランス語、フィンランド語、アラビア語で利用できます。
+新しい言語を作成したい場合は私に連絡してください :) .
 
-#### Translating
+#### アプリを翻訳する
 You need basic knowledge of programming and using Github to create translation. Also you need to know two letter country code for language (for example finnish `FI`).
 
-1. Fork this repository
+1. レポジトリをフォークする
 1. Duplicate some file in folder `/app/src/locale/` and change it's name to `messages.[TWO LETTER COUNTRY CODE].xlf` in your forked repository
 1. Modify `target` tags according to `source` tags in the file
-1. Save it
+1. セーブする
 1. Modify `/main.js` file (use find in next 2 steps)  
    1. Add your language in `menuTexts` object and translate it (duplicate it and modify), call object with your two letter country code
    1. Add your language's two letter country code in `supportedLocales` array
-   1. Save it
-1. Create pull request
+   1. セーブする
+1. プルリクエストを作成
 
-## Credits
+## 参加者
 
-|Translation|Made by|Email|Report wrong translation|
+|翻訳|作成者|Eメール|間違った翻訳を指摘|
 |---|---|---|---|
 |Arabic|Esmail EL BoB|esmailelbob01124320019@gmail.com|http://bit.ly/2EVnQWr|
 |Finnish|[0x4d48](https://github.com/0x4d48)|e4d48@outlook.com|via email|
