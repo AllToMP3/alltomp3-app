@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="9109ad0a9567961340bbe9e831f23a8e1a0927ea" datatype="html">
+        <source>Click to copy a link to AllToMP3&apos;s website, to share it with friends 😎</source>
+        <target>Cliquez pour copier un lien vers le site d'AllToMP3, pour le partager avec vos amis 😎</target>
+      </trans-unit>
+      <trans-unit id="80f020c7add63ba8f1871563d1857a4773d7c225" datatype="html">
+        <source>Copied in clipboard!</source>
+        <target>Lien copié dans le presse-papier !</target>
+      </trans-unit>
+      <trans-unit id="53ae95a1f539cc2fe2061350c6a8ecd68dfe18f1" datatype="html">
+        <source>Like this program? Help me!</source>
+        <target>Vous aimez AllToMP3? Faîtes un don !</target>
+      </trans-unit>
+      <trans-unit id="3f076ce994611c87527e4e17cc65916cda195966" datatype="html">
+        <source>What do you want to download?</source>
+        <target>Que voulez-vous télécharger ?</target>
+      </trans-unit>
+      <trans-unit id="2e66d4c5689e5e2149360c8c74ff55c904b5bfcb" datatype="html">
+        <source>
+      This URL is not supported
+    </source>
+        <target>
+      Cette adresse n'est pas supportée
+    </target>
+      </trans-unit>
+      <trans-unit id="1564f2f84b4f796e3f4d90c86dca06570dec4c9e" datatype="html">
+        <source>
+      Press <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> to download
+    </source>
+        <target>
+      Appuyez sur <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> pour télécharger
+    </target>
+      </trans-unit>
+      <trans-unit id="2d85c24d82d4323a3ef4302294917093ec3487e5" datatype="html">
+        <source>Songs are downloaded in <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></source>
+        <target>Les morceaux sont téléchargés dans <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></target>
+      </trans-unit>
+      <trans-unit id="4e4e1488d2637ddc4846306509caa15411e1788a" datatype="html">
+        <source>
+            Abort
+          </source>
+        <target>
+            Annuler
+          </target>
+      </trans-unit>
+      <trans-unit id="43880ca5d1946cb5ba7c299098e269e976482d66" datatype="html">
+        <source>
+      See the list
+    </source>
+        <target>
+      Voir la liste
+    </target>
+      </trans-unit>
+      <trans-unit id="5216bccc3849fd91f904136fa85a57dc2b5815b7" datatype="html">
+        <source>
+      Hide the list
+    </source>
+        <target>
+      Cacher la liste
+    </target>
+      </trans-unit>
+      <trans-unit id="670a3f63f86bf2d943f078604737a830c8fe7ebf" datatype="html">
+        <source>An issue, an idea?</source>
+        <target>Un problème, une idée ?</target>
+      </trans-unit>
+      <trans-unit id="ebe2bb19fa701cc947a95c6fa07249a8e0965fa7" datatype="html">
+        <source>An update is downloading</source>
+        <target>Une mise à jour est en cours de téléchargement</target>
+      </trans-unit>
+      <trans-unit id="6470eedcfc4085470c43c2de67e8b738f797a226" datatype="html">
+        <source>An update has been downloaded and will be installed at the next app launch<x id="START_TAG_SPAN" ctype="x-span"/>, or click to relaunch the app now<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target>Une mise à jour a été téléchargée et sera installée au prochain lancement de l'application<x id="START_TAG_SPAN" ctype="x-span"/>, ou cliquez pour redémarrer l'application maintenant<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
+      </trans-unit>
+      <trans-unit id="50e3f27de710efc3623c4b6a46abe14199b6582a" datatype="html">
+        <source>Enter:</source>
+        <target>Entrez des :</target>
+      </trans-unit>
+      <trans-unit id="a37cfde66e15101d640de7b86c995cd65b18f8ec" datatype="html">
+        <source>Songs</source>
+        <target>Morceaux</target>
+      </trans-unit>
+      <trans-unit id="63f5d0ec23e3cf4abf6d5221107633c90d8d4a15" datatype="html">
+        <source>OR</source>
+        <target>OU</target>
+      </trans-unit>
+      <trans-unit id="dd7c39d13550b0fea7b5632d3d3348f0ebccbd95" datatype="html">
+        <source>
+  Update&apos;s changes
+</source>
+        <target>
+  Nouveautés
+</target>
+      </trans-unit>
+      <trans-unit id="4bb6f05816c16e1198e3a863fbc29e07542f4fec" datatype="html">
+        <source>
+  News
+</source>
+        <target>
+  Actualités
+</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
