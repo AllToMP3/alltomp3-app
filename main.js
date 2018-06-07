@@ -335,6 +335,17 @@ let menuTexts = {
     paste: 'Coller',
     selectAll: 'Tout sélectionner'
   },
+   tr: {
+    about: 'Hakkında',
+    quit: 'Çık',
+    edit: 'Değiştir',
+    undo: 'Geri',
+    redo: 'Tekrar',
+    cut: 'Kes',
+    copy: 'Kopyala',
+    paste: 'Yapıştır',
+    selectAll: 'Hepsini seç'
+  },
   ja: {
     about: 'AllToMP3について',
     quit: '終了',
@@ -359,7 +370,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'fi'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
