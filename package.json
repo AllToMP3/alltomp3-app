@@ -71,7 +71,7 @@
     ]
   },
   "scripts": {
-    "start": "electron .",
+    "start": "ALLTOMP3_DEV=1 electron .",
     "pack": "build --dir",
     "dist": "build",
     "release": "build",

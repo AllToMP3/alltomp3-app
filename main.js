@@ -9,7 +9,10 @@ const ncp = require('ncp');
 const request = require('request');
 const alltomp3 = require('alltomp3');
 const VERSION = app.getVersion();
-const DEV = true;
+let DEV = false;
+if (process.env.ALLTOMP3_DEV == '1') {
+  DEV = true;
+}
 
 // autoUpdater
 if (!DEV && os.platform() != 'linux') {

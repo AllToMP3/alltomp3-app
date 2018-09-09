@@ -1,0 +1,24 @@
+image: Visual Studio 2017
+
+platform:
+  - x64
+
+environment:
+  CYG_ROOT: C:\cygwin64
+
+init:
+  - git config --global core.autocrlf input
+
+install:
+  - ps: Install-Product node 10 x64
+
+build_script:
+  - npm install -g @angular/cli@1.0.0
+  - cd app/
+  - npm install
+  - '%CYG_ROOT%/bin/bash -lc "cd $APPVEYOR_BUILD_FOLDER; cd app; ./build.sh"'
+  - cd ../
+  - npm install
+  - npm run release
+
+test: off

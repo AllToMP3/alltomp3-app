@@ -29,6 +29,7 @@ const dlUnzip = (url, execFiles) => {
       execFiles.forEach((file) => {
         fs.chmodSync(DIST + '/' + file, 0755);
       });
+      fs.unlinkSync('./bin.zip');
       console.log('Done!');
     });
   });
