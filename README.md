@@ -11,9 +11,8 @@ If you encounter any problem, try to add an exception for AllToMP3 or to deactiv
 ## For developers
 ### Installation
 Install the following requirements:
-- Node 9 + NPM (or yarn);
-- Electron 1.8.2 (you must be able to execute the command `electron`);
-- [angular-cli](https://github.com/angular/angular-cli) (you must be able to execute the command `ng`).
+- Node 10 + NPM;
+- `npm install -g @angular/cli@1.0.0`
 
 On Linux you will need [AllToMP3 requirements](https://github.com/AllToMP3/alltomp3#requirements) (ffmpeg, fpcalc, python)
 
@@ -27,7 +26,7 @@ npm install
 
 ### Launching the app
 Go in the `app/` folder and execute `ng serve`.
-Then, in another terminal, in the main folder execute `electron .` (it allows hot-reload of the Angular part).
+Then, in another terminal, in the main folder execute `npm start` (it allows hot-reload of the Angular part).
 
 ### Building the app
 In the `main.js` file, you must set the variable `DEV` (around line 12) to `false`, to deactivate the web inspector and turn on auto-updates.
@@ -50,7 +49,7 @@ You need basic knowledge of programming and using Github to create translation. 
 1. Duplicate some file in folder `/app/src/locale/` and change it's name to `messages.[TWO LETTER COUNTRY CODE].xlf` in your forked repository
 1. Modify `target` tags according to `source` tags in the file
 1. Save it
-1. Modify `/main.js` file (use find in next 2 steps)  
+1. Modify `/main.js` file (use find in next 2 steps)
    1. Add your language in `menuTexts` object and translate it (duplicate it and modify), call object with your two letter country code
    1. Add your language's two letter country code in `supportedLocales` array
    1. Save it

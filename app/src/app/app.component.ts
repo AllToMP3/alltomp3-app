@@ -43,7 +43,7 @@ export class AppComponent {
   shareCopied:boolean = false; // if the link to AllToMP3 website has been copied
   shareTimeout = undefined; // the timeout to change back the tooltip
 
-  constructor(private alltomp3: Alltomp3Service, private db: DatabaseService, private contextMenu: ContextMenuService) {
+  constructor(private alltomp3: Alltomp3Service, private db: DatabaseService, public contextMenu: ContextMenuService) {
     this.requests = alltomp3.requests;
 
     this.db.getHelpDisplayed().then(helpDisplay => {

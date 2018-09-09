@@ -226,7 +226,7 @@ ipcMain.on('at3.downloadTrackURL', (event, q) => {
 */
 ipcMain.on('at3.downloadPlaylist', (event, q) => {
   console.log('[AT3] downloadPlaylist', q);
-  let e = alltomp3.downloadPlaylist(q.url, q.folder, () => {}, 3, path.join('{artist}', '{title}'));
+  let e = alltomp3.downloadPlaylist(q.url, q.folder, () => {}, 4, path.join('{artist}', '{title}'));
   e.on('playlist-infos', playlistInfos => {
     forwardEvents(e, event.sender, q.id, playlistInfos.items);
     event.sender.send('at3.event', {
@@ -356,11 +356,12 @@ let menuTexts = {
     copy: 'コピー',
     paste: '貼り付け',
     selectAll: 'すべて選択'
+  },
 };
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+let win;
 
 function createWindow () {
   let locales = app.getLocale().split('-');
