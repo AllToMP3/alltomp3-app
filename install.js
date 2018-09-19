@@ -12,7 +12,7 @@ const urls = {
 };
 const files = {
   darwin: ['ffmpeg', 'fpcalc', 'ffprobe', 'eyeD3/bin/eyeD3'],
-  linux: ['bin/eyeD3/bin/eyeD3'],
+  linux: ['eyeD3/bin/eyeD3'],
   win32: [],
 };
 
