@@ -303,7 +303,7 @@ let menuTexts = {
     cut: 'قص',
     copy: 'مثال',
     paste: 'معجون',
-    selectAll: 'اختر الكل'
+    selectAll: 'اختر الكل',
   },
   en: {
     about: 'About',
@@ -314,7 +314,18 @@ let menuTexts = {
     cut: 'Cut',
     copy: 'Copy',
     paste: 'Paste',
-    selectAll: 'Select All'
+    selectAll: 'Select All',
+  },
+  es: {
+    about: 'Acerca de',
+    quit: 'Salir',
+    edit: 'Editar',
+    undo: 'Deshacer',
+    redo: 'Rehacer',
+    cut: 'Cortar',
+    copy: 'Copiar',
+    paste: 'Pegar',
+    selectAll: 'Seleccionar Todo',
   },
   fi: {
     about: 'Tietoa',
@@ -325,7 +336,7 @@ let menuTexts = {
     cut: 'Leikkaa',
     copy: 'Kopioi',
     paste: 'Liitä',
-    selectAll: 'Valitse kaikki'
+    selectAll: 'Valitse kaikki',
   },
   fr: {
     about: 'À propos',
@@ -336,18 +347,7 @@ let menuTexts = {
     cut: 'Couper',
     copy: 'Copier',
     paste: 'Coller',
-    selectAll: 'Tout sélectionner'
-  },
-   tr: {
-    about: 'Hakkında',
-    quit: 'Çık',
-    edit: 'Değiştir',
-    undo: 'Geri',
-    redo: 'Tekrar',
-    cut: 'Kes',
-    copy: 'Kopyala',
-    paste: 'Yapıştır',
-    selectAll: 'Hepsini seç'
+    selectAll: 'Tout sélectionner',
   },
   ja: {
     about: 'AllToMP3について',
@@ -358,7 +358,18 @@ let menuTexts = {
     cut: 'カット',
     copy: 'コピー',
     paste: '貼り付け',
-    selectAll: 'すべて選択'
+    selectAll: 'すべて選択',
+  },
+   tr: {
+    about: 'Hakkında',
+    quit: 'Çık',
+    edit: 'Değiştir',
+    undo: 'Geri',
+    redo: 'Tekrar',
+    cut: 'Kes',
+    copy: 'Kopyala',
+    paste: 'Yapıştır',
+    selectAll: 'Hepsini seç',
   },
 };
 
@@ -374,7 +385,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
