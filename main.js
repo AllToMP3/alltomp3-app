@@ -360,6 +360,17 @@ let menuTexts = {
     paste: '貼り付け',
     selectAll: 'すべて選択',
   },
+  pt: {
+    about: 'Sobre',
+    quit: 'Sair',
+    edit: 'Editar',
+    undo: 'Desfazer',
+    redo: 'Refazer',
+    cut: 'Recortar',
+    copy: 'Copiar',
+    paste: 'Colar',
+    selectAll: 'Selecionar Tudo',
+  },
    tr: {
     about: 'Hakkında',
     quit: 'Çık',
@@ -385,7 +396,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
