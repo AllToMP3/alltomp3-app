@@ -35,6 +35,19 @@
       "category": "AudioVideo",
       "packageCategory": "sound"
     },
+    "deb": {
+      "depends": [
+        "python-pathlib",
+        "gconf2",
+        "gconf-service",
+        "libnotify4",
+        "libappindicator1",
+        "libxtst6",
+        "libnss3",
+        "ffmpeg",
+        "libchromaprint-tools"
+      ]
+    },
     "dmg": {
       "title": "AllToMP3",
       "icon": "build/dmg.icns",
