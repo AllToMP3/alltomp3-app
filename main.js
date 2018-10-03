@@ -382,6 +382,17 @@ let menuTexts = {
     paste: 'Yapıştır',
     selectAll: 'Hepsini seç',
   },
+  de: {
+    about: 'Über',
+    quit: 'Schließen',
+    edit: 'Bearbeiten',
+    undo: 'Widerrufen',
+    redo: 'Wiederholen',
+    cut: 'Ausschneiden',
+    copy: 'Kopieren',
+    paste: 'Einfügen',
+    selectAll: 'Alles auswählen'
+  }
 };
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -396,7 +407,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
