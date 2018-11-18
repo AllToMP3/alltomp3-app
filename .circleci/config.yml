@@ -1,9 +1,6 @@
 version: 2
 jobs:
-  build-linux:
-    branches:
-      only:
-        - master
+  build_linux:
     docker:
       - image: circleci/node:10-stretch
     environment:
@@ -26,9 +23,12 @@ jobs:
       - run: sudo gdebi -n dist/*_new.deb
       - run: sudo gdebi -n dist/*_old.deb
       - run: bash .circleci/linux-release.sh
-
 workflows:
   version: 2
   build:
     jobs:
-      - build-linux
+      - build_linux:
+          filters:
+            branches:
+              only:
+                - master
