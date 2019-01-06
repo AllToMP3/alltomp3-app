@@ -349,6 +349,17 @@ let menuTexts = {
     paste: 'Coller',
     selectAll: 'Tout sélectionner',
   },
+  it: {
+    about: 'Info',
+    quit: 'Esci',
+    edit: 'Modifica',
+    undo: 'Indietro',
+    redo: 'Avanti',
+    cut: 'Taglia',
+    copy: 'Copia',
+    paste: 'Incolla',
+    selectAll: 'Seleziona tutto',
+  },
   ja: {
     about: 'AllToMP3について',
     quit: '終了',
@@ -407,7 +418,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
