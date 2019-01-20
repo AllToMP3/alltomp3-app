@@ -2,7 +2,7 @@ version: 2
 jobs:
   build_linux:
     docker:
-      - image: circleci/node:11.6-stretch
+      - image: circleci/node:11-stretch
     environment:
       ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
     steps:
