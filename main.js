@@ -393,6 +393,17 @@ let menuTexts = {
     paste: 'Yapıştır',
     selectAll: 'Hepsini seç',
   },
+  hu: {
+    about: 'Névjegy',
+    quit: 'Kilépés',
+    edit: 'Szerkesztés',
+    undo: 'Visszavonás',
+    redo: 'Ismét',
+    cut: 'Kivágás',
+    copy: 'Másolás',
+    paste: 'Beillesztés',
+    selectAll: 'Összes kijelölése',
+  },
   de: {
     about: 'Über',
     quit: 'Schließen',
@@ -418,7 +429,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
