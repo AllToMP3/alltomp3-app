@@ -382,17 +382,6 @@ let menuTexts = {
     paste: 'Colar',
     selectAll: 'Selecionar Tudo',
   },
-  ru: {
-    about: 'О программе',
-    quit: 'Выход',
-    edit: 'Изменить',
-    undo: 'Отменить',
-    redo: 'Вернуть',
-    cut: 'Вырезать',
-    copy: 'Копировать',
-    paste: 'Вставить',
-    selectAll: 'Выбрать все',
-  },
    tr: {
     about: 'Hakkında',
     quit: 'Çık',
@@ -429,7 +418,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'ru', 'de', 'it'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
