@@ -421,7 +421,7 @@ let menuTexts = {
     edit: 'Bewerken',
     undo: 'Ongedaan maken',
     redo: 'Opnieuw toepassen',
-    cut: 'knippen',
+    cut: 'Knippen',
     copy: 'Kopiëren',
     paste: 'Plakken',
     selectAll: 'Alles selecteren'
