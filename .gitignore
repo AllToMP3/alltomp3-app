@@ -1,4 +1,3 @@
 node_modules/
 npm-debug.log
 dist/
-app/package-lock.json
