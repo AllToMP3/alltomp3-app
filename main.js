@@ -414,6 +414,17 @@ let menuTexts = {
     copy: 'העתק',
     paste: 'הדבק',
     selectAll: 'בחר הכול'
+  },
+  nl: {
+    about: 'Over',
+    quit: 'Sluiten',
+    edit: 'Bewerken',
+    undo: 'Ongedaan maken',
+    redo: 'Opnieuw toepassen',
+    cut: 'knippen',
+    copy: 'Kopiëren',
+    paste: 'Plakken',
+    selectAll: 'Alles selecteren'
   }
 };
 
