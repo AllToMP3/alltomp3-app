@@ -393,6 +393,17 @@ let menuTexts = {
     paste: 'Colar',
     selectAll: 'Selecionar Tudo',
   },
+  ru: {
+    about: 'О программе',
+    quit: 'Выход',
+    edit: 'Изменить',
+    undo: 'Отменить',
+    redo: 'Вернуть',
+    cut: 'Вырезать',
+    copy: 'Копировать',
+    paste: 'Вставить',
+    selectAll: 'Выбрать все',
+  },
    tr: {
     about: 'Hakkında',
     quit: 'Çık',
@@ -404,6 +415,17 @@ let menuTexts = {
     paste: 'Yapıştır',
     selectAll: 'Hepsini seç',
   },
+  hu: {
+    about: 'Névjegy',
+    quit: 'Kilépés',
+    edit: 'Szerkesztés',
+    undo: 'Visszavonás',
+    redo: 'Ismét',
+    cut: 'Kivágás',
+    copy: 'Másolás',
+    paste: 'Beillesztés',
+    selectAll: 'Összes kijelölése',
+  },
   de: {
     about: 'Über',
     quit: 'Schließen',
@@ -414,6 +436,17 @@ let menuTexts = {
     copy: 'Kopieren',
     paste: 'Einfügen',
     selectAll: 'Alles auswählen'
+  },
+  he: {
+    about: 'אודות',
+    quit: 'צא',
+    edit: 'ערוך',
+    undo: 'בטל',
+    redo: 'החזר',
+    cut: 'גזור',
+    copy: 'העתק',
+    paste: 'הדבק',
+    selectAll: 'בחר הכול'
   }
 };
 
@@ -429,7 +462,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'ir'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
