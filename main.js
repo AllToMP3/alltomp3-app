@@ -414,6 +414,17 @@ let menuTexts = {
     copy: 'Kopieren',
     paste: 'Einfügen',
     selectAll: 'Alles auswählen'
+  },
+  he: {
+    about: 'אודות',
+    quit: 'צא',
+    edit: 'ערוך',
+    undo: 'בטל',
+    redo: 'החזר',
+    cut: 'גזור',
+    copy: 'העתק',
+    paste: 'הדבק',
+    selectAll: 'בחר הכול'
   }
 };
 
@@ -429,7 +440,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
