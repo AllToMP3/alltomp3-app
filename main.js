@@ -305,6 +305,17 @@ let menuTexts = {
     paste: 'معجون',
     selectAll: 'اختر الكل',
   },
+  fa: {
+    about: 'درباره',
+    quit: 'خروج',
+    edit: 'ویرایش',
+    undo: 'بازگردانی به قبل',
+    redo: 'بازگردانی به بعد',
+    cut: 'برش',
+    copy: 'کپی',
+    paste: 'چسباندن',
+    selectAll: 'انتخاب همه',
+  },
   en: {
     about: 'About',
     quit: 'Quit',
@@ -451,7 +462,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
