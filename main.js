@@ -458,6 +458,17 @@ let menuTexts = {
     copy: 'Kopiëren',
     paste: 'Plakken',
     selectAll: 'Alles selecteren'
+  },
+  mk: {
+    about: 'За',
+    quit: 'Прекини',
+    edit: 'Промени',
+    undo: 'Поништи',
+    redo: 'Повтори',
+    cut: 'Исечи',
+    copy: 'Копирај',
+    paste: 'Залепи',
+    selectAll: 'Селектирај се',
   }
 };
 
@@ -473,7 +484,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir', 'nl'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir', 'nl','mk'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
