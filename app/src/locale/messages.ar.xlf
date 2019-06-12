@@ -12,7 +12,7 @@
       </trans-unit>
       <trans-unit id="53ae95a1f539cc2fe2061350c6a8ecd68dfe18f1" datatype="html">
         <source>Like this program? Help me!</source>
-        <target>Like this program? Help me!</target>
+        <target>حبيت البرنامج ؟ ساعدنى!</target>
       </trans-unit>
       <trans-unit id="3f076ce994611c87527e4e17cc65916cda195966" datatype="html">
         <source>What do you want to download?</source>
@@ -29,7 +29,7 @@
       Press <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> to download
     </source>
         <target>
-      اضغط <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> اضغط
+        اضغط <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/>  للتحميل 
     </target>
       </trans-unit>
       <trans-unit id="2d85c24d82d4323a3ef4302294917093ec3487e5" datatype="html">
@@ -56,7 +56,7 @@
       </trans-unit>
       <trans-unit id="670a3f63f86bf2d943f078604737a830c8fe7ebf" datatype="html">
         <source>An issue, an idea?</source>
-        <target>An issue, an idea?</target>
+        <target>مشكلة او فكرة ؟</target>
       </trans-unit>
       <trans-unit id="ebe2bb19fa701cc947a95c6fa07249a8e0965fa7" datatype="html">
         <source>An update is downloading</source>
