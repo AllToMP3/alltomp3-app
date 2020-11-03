@@ -393,6 +393,17 @@ let menuTexts = {
     paste: 'Colar',
     selectAll: 'Selecionar Tudo',
   },
+  rs: {
+    about: 'O programu',
+    quit: 'Izađi',
+    edit: 'Izmeni',
+    undo: 'Poništi',
+    redo: 'Ponovi',
+    cut: 'Iseci',
+    copy: 'Kopiraj',
+    paste: 'Umetni',
+    selectAll: 'Označi sve',
+  },
   ru: {
     about: 'О программе',
     quit: 'Выход',
@@ -473,7 +484,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir', 'nl'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'rs', 'ru', 'ir', 'nl'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
