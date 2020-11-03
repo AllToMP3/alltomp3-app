@@ -60,3 +60,4 @@ Also you need to know two letter country code for language (for example finnish 
 |Finnish|[0x4d48](https://github.com/0x4d48)|e4d48@outlook.com|via email|
 |Japanese|[opera7133](https://github.com/opera7133)|opera7133@aol.com|via email|
 |Russian|[aerohub](https://github.com/aerohub)|aerohub@users.noreply.github.com|via email|
+|Serbian|[aleksa-stojsic](https://github.com/aleksa-stojsic)|stojsic.aleksa@gmail.com|via email|
