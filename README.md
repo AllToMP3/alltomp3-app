@@ -56,7 +56,7 @@ Also you need to know two letter country code for language (for example finnish 
 
 |Translation|Made by|Email|Report wrong translation|
 |---|---|---|---|
-|Arabic|Esmail EL BoB|esmailelbob01124320019@gmail.com|via email|
+|Arabic|[Esmail EL BoB](https://github.com/EsmailELBoBDev2)|esmailelbob01124320019@pm.me|via email|
 |Finnish|[0x4d48](https://github.com/0x4d48)|e4d48@outlook.com|via email|
 |Japanese|[opera7133](https://github.com/opera7133)|opera7133@aol.com|via email|
 |Russian|[aerohub](https://github.com/aerohub)|aerohub@users.noreply.github.com|via email|
