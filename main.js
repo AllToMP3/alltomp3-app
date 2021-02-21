@@ -316,6 +316,17 @@ let menuTexts = {
     paste: 'Επικόλληση',
     selectAll: 'Επιλογή όλων',
   },
+  fa: {
+    about: 'درباره',
+    quit: 'خروج',
+    edit: 'ویرایش',
+    undo: 'بازگردانی به قبل',
+    redo: 'بازگردانی به بعد',
+    cut: 'برش',
+    copy: 'کپی',
+    paste: 'چسباندن',
+    selectAll: 'انتخاب همه',
+  },
   en: {
     about: 'About',
     quit: 'Quit',
@@ -393,6 +404,17 @@ let menuTexts = {
     paste: 'Colar',
     selectAll: 'Selecionar Tudo',
   },
+  ru: {
+    about: 'О программе',
+    quit: 'Выход',
+    edit: 'Изменить',
+    undo: 'Отменить',
+    redo: 'Вернуть',
+    cut: 'Вырезать',
+    copy: 'Копировать',
+    paste: 'Вставить',
+    selectAll: 'Выбрать все',
+  },
    tr: {
     about: 'Hakkında',
     quit: 'Çık',
@@ -404,6 +426,17 @@ let menuTexts = {
     paste: 'Yapıştır',
     selectAll: 'Hepsini seç',
   },
+  hu: {
+    about: 'Névjegy',
+    quit: 'Kilépés',
+    edit: 'Szerkesztés',
+    undo: 'Visszavonás',
+    redo: 'Ismét',
+    cut: 'Kivágás',
+    copy: 'Másolás',
+    paste: 'Beillesztés',
+    selectAll: 'Összes kijelölése',
+  },
   de: {
     about: 'Über',
     quit: 'Schließen',
@@ -414,6 +447,28 @@ let menuTexts = {
     copy: 'Kopieren',
     paste: 'Einfügen',
     selectAll: 'Alles auswählen'
+  },
+  he: {
+    about: 'אודות',
+    quit: 'צא',
+    edit: 'ערוך',
+    undo: 'בטל',
+    redo: 'החזר',
+    cut: 'גזור',
+    copy: 'העתק',
+    paste: 'הדבק',
+    selectAll: 'בחר הכול'
+  },
+  nl: {
+    about: 'Over',
+    quit: 'Sluiten',
+    edit: 'Bewerken',
+    undo: 'Ongedaan maken',
+    redo: 'Opnieuw toepassen',
+    cut: 'Knippen',
+    copy: 'Kopiëren',
+    paste: 'Plakken',
+    selectAll: 'Alles selecteren'
   }
 };
 
@@ -429,7 +484,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it','el'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir', 'nl','el'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;

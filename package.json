@@ -1,6 +1,6 @@
 {
   "name": "AllToMP3",
-  "version": "0.3.8",
+  "version": "0.3.19",
   "description": "Download YouTube videos in MP3 with tags and lyrics",
   "main": "main.js",
   "repository": "git@github.com:AllToMP3/alltomp3-app.git",
@@ -8,15 +8,15 @@
   "license": "GPL-2.0",
   "homepage": "https://alltomp3.org/",
   "dependencies": {
-    "alltomp3": "0.2.10",
-    "electron-updater": "~3.0.3",
+    "alltomp3": "^0.4.5",
+    "electron-updater": "~4.2.0",
     "ncp": "~2.0.0",
     "nedb-promise": "~2.0.1",
     "request": "~2.81.0"
   },
   "devDependencies": {
-    "electron": "~2.0.8",
-    "electron-builder": "~20.28.4",
+    "electron": "~4",
+    "electron-builder": "~22.3.2",
     "unzip2": "~0.2.5"
   },
   "build": {
@@ -84,9 +84,9 @@
   },
   "scripts": {
     "start": "ALLTOMP3_DEV=1 electron .",
-    "pack": "build --dir",
-    "dist": "build",
-    "release": "build",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "release": "electron-builder",
     "postinstall": "electron-builder install-app-deps && node ./install.js"
   }
 }

@@ -10,3 +10,8 @@ ng build --aot --output-path dist/pt --locale pt --i18n-format xlf --i18n-file s
 ng build --aot --output-path dist/de --locale de --i18n-format xlf --i18n-file src/locale/messages.de.xlf --base-href './'
 ng build --aot --output-path dist/ar --locale ar --i18n-format xlf --i18n-file src/locale/messages.ar.xlf --base-href './'
 ng build --aot --output-path dist/it --locale it --i18n-format xlf --i18n-file src/locale/messages.it.xlf --base-href './'
+ng build --aot --output-path dist/he --locale he --i18n-format xlf --i18n-file src/locale/messages.he.xlf --base-href './'
+ng build --aot --output-path dist/hu --locale hu --i18n-format xlf --i18n-file src/locale/messages.hu.xlf --base-href './'
+ng build --aot --output-path dist/ru --locale ru --i18n-format xlf --i18n-file src/locale/messages.ru.xlf --base-href './'
+ng build --aot --output-path dist/ir --locale ir --i18n-format xlf --i18n-file src/locale/messages.ir.xlf --base-href './'
+ng build --aot --output-path dist/nl --locale nl --i18n-format xlf --i18n-file src/locale/messages.nl.xlf --base-href './'
