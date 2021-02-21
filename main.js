@@ -305,6 +305,17 @@ let menuTexts = {
     paste: 'معجون',
     selectAll: 'اختر الكل',
   },
+  el: {
+    about: 'Σχετικά με',
+    quit: 'Έξοδος',
+    edit: 'Επεξεργασία',
+    undo: 'Αναίρεση',
+    redo: 'Ακύρωση Αναίρεσης',
+    cut: 'Αποκοπή',
+    copy: 'Αντιγραφή',
+    paste: 'Επικόλληση',
+    selectAll: 'Επιλογή όλων',
+  },
   en: {
     about: 'About',
     quit: 'Quit',
@@ -418,7 +429,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it','el'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
