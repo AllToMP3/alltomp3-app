@@ -458,7 +458,17 @@ let menuTexts = {
     copy: 'Kopiëren',
     paste: 'Plakken',
     selectAll: 'Alles selecteren'
-  }
+  },
+  se: {
+    about: 'Om',
+    quit: 'Avsluta',
+    edit: 'Ändra',
+    undo: 'Ångra',
+    redo: 'Återställ',
+    cut: 'Klipp ut',
+    copy: 'Kopiera',
+    paste: 'Klistra in',
+    selectAll: 'Markera allt'
 };
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -473,7 +483,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir', 'nl'];
+  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir', 'nl','se'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
