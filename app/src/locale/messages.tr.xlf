@@ -31,12 +31,12 @@
       Press <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> to download
     </source>
         <target>
-      Paina <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> ladataksesi
+      İndirmek için <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/>&apos;a bas
     </target>
       </trans-unit>
       <trans-unit id="2d85c24d82d4323a3ef4302294917093ec3487e5" datatype="html">
         <source>Songs are downloaded in <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></source>
-        <target>Şarkılar indirildi  <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></target>
+        <target>Şarkılar şuraya indirildi: <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></target>
       </trans-unit>
       <trans-unit id="4e4e1488d2637ddc4846306509caa15411e1788a" datatype="html">
         <source>
@@ -64,7 +64,7 @@
       </trans-unit>
       <trans-unit id="670a3f63f86bf2d943f078604737a830c8fe7ebf" datatype="html">
         <source>An issue, an idea?</source>
-        <target>Bir hata veya fikrinmi var?</target>
+        <target>Bir hata veya fikrin mi var?</target>
       </trans-unit>
       <trans-unit id="ebe2bb19fa701cc947a95c6fa07249a8e0965fa7" datatype="html">
         <source>An update is downloading</source>
@@ -72,11 +72,11 @@
       </trans-unit>
       <trans-unit id="6470eedcfc4085470c43c2de67e8b738f797a226" datatype="html">
         <source>An update has been downloaded and will be installed at the next app launch<x id="START_TAG_SPAN" ctype="x-span"/>, or click to relaunch the app now<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
-        <target>Güncelleme indirildi ve uygulamayı bidaha açışında yüklencek <x id="START_TAG_SPAN" ctype="x-span"/>, veya şimdi yeniden başlat tuşuna bas<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
+        <target>Güncelleme indirildi ve uygulamayı bir daha açışında yüklenecek <x id="START_TAG_SPAN" ctype="x-span"/>, ya da uygulamayı şimdi yeniden başlatmak için tıkla<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
       </trans-unit>
       <trans-unit id="50e3f27de710efc3623c4b6a46abe14199b6582a" datatype="html">
         <source>Enter:</source>
-        <target>Girmek:</target>
+        <target>Şunları yazabilirsiniz:</target>
       </trans-unit>
       <trans-unit id="a37cfde66e15101d640de7b86c995cd65b18f8ec" datatype="html">
         <source>Songs</source>
@@ -99,7 +99,7 @@
   News
 </source>
         <target>
-Haber
+Haberler
 </target>
       </trans-unit>
     </body>
