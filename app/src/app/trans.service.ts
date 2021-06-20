@@ -32,6 +32,20 @@ export class TransService {
       copy: 'Copy',
       paste: 'Paste',
       selectAll: 'Select All'
+    },
+    it: {
+      antivirus: "C'è stato un errore. Se hai un antivirus prova a disattivarlo e riattivarlo. Potrebbe interferire con AllToMP3.",
+      dlfinished: 'Download completato',
+      dlfrom: 'da',
+      dldownloaded: 'è stato scaricato',
+      songs: 'brani',
+      edit: 'Modifica',
+      undo: 'Annulla',
+      redo: 'Ripeti',
+      cut: 'Taglia',
+      copy: 'Copia',
+      paste: 'Incolla',
+      selectAll: 'Seleziona tutto'
     }
   };
 
