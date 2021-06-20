@@ -327,6 +327,17 @@ let menuTexts = {
     paste: 'Paste',
     selectAll: 'Select All',
   },
+  id: {
+    about: 'Tentang',
+    quit: 'Keluar',
+    edit: 'Edit',
+    undo: 'Batalkan',
+    redo: 'Urungkan',
+    cut: 'Potong',
+    copy: 'Salin',
+    paste: 'Tempel',
+    selectAll: 'Pilih Semua',
+  },
   es: {
     about: 'Acerca de',
     quit: 'Salir',
@@ -473,7 +484,7 @@ function createWindow () {
   } else {
     alltomp3.relevanceLanguage = locale;
   }
-  let supportedLocales = ['en', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir', 'nl'];
+  let supportedLocales = ['en', 'id', 'fr', 'ar', 'tr', 'fi', 'ja', 'es', 'pt', 'de', 'it', 'hu', 'he', 'ru', 'ir', 'nl'];
   let supportedLocale = 'en';
   if (supportedLocales.indexOf(locale) > -1) {
     supportedLocale = locale;
