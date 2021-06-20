@@ -1,0 +1,109 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="9109ad0a9567961340bbe9e831f23a8e1a0927ea" datatype="html">
+        <source>Click to copy a link to AllToMP3&apos;s website, to share it with friends 😎</source>
+        <target>여기를 클릭해서 AllToMP3&apos;s 사이트를 친구들에게 공유해보세요 😎</target>
+      </trans-unit>
+      <trans-unit id="80f020c7add63ba8f1871563d1857a4773d7c225" datatype="html">
+        <source>Copied in clipboard!</source>
+        <target>클립보드에 복사했어요!</target>
+      </trans-unit>
+      <trans-unit id="53ae95a1f539cc2fe2061350c6a8ecd68dfe18f1" datatype="html">
+        <source>Like this program? Help me!</source>
+        <target>이 프로그램이 마음에 드세요? 도와주세요!</target>
+      </trans-unit>
+      <trans-unit id="3f076ce994611c87527e4e17cc65916cda195966" datatype="html">
+        <source>What do you want to download?</source>
+        <target>무엇을 다운로드 하고싶으세요?</target>
+      </trans-unit>
+      <trans-unit id="2e66d4c5689e5e2149360c8c74ff55c904b5bfcb" datatype="html">
+        <source>
+      This URL is not supported
+    </source>
+        <target>
+      이 URL은 지원하지 않습니다.
+    </target>
+      </trans-unit>
+      <trans-unit id="1564f2f84b4f796e3f4d90c86dca06570dec4c9e" datatype="html">
+        <source>
+      Press <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/> to download
+    </source>
+        <target>
+      <x id="START_TAG_SPAN" ctype="x-span"/>Enter<x id="CLOSE_TAG_SPAN" ctype="x-span"/>를 다운로드
+    </target>
+      </trans-unit>
+      <trans-unit id="2d85c24d82d4323a3ef4302294917093ec3487e5" datatype="html">
+        <source>Songs are downloaded in <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></source>
+        <target><x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/>에 다운로드 됩니다.</target>
+      </trans-unit>
+      <trans-unit id="4e4e1488d2637ddc4846306509caa15411e1788a" datatype="html">
+        <source>
+            Abort
+          </source>
+        <target>
+            중지
+          </target>
+      </trans-unit>
+      <trans-unit id="43880ca5d1946cb5ba7c299098e269e976482d66" datatype="html">
+        <source>
+      See the list
+    </source>
+        <target>
+      리스트 펼치기
+    </target>
+      </trans-unit>
+      <trans-unit id="5216bccc3849fd91f904136fa85a57dc2b5815b7" datatype="html">
+        <source>
+      Hide the list
+    </source>
+        <target>
+      리스트 숨기기
+    </target>
+      </trans-unit>
+      <trans-unit id="670a3f63f86bf2d943f078604737a830c8fe7ebf" datatype="html">
+        <source>An issue, an idea?</source>
+        <target>문제가 있거나 좋은 아이디어가 있나요?</target>
+      </trans-unit>
+      <trans-unit id="ebe2bb19fa701cc947a95c6fa07249a8e0965fa7" datatype="html">
+        <source>An update is downloading</source>
+        <target>업데이트 중</target>
+      </trans-unit>
+      <trans-unit id="6470eedcfc4085470c43c2de67e8b738f797a226" datatype="html">
+        <source>An update has been downloaded and will be installed at the next app launch<x id="START_TAG_SPAN" ctype="x-span"/>, or click to relaunch the app now<x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target>
+         업데이트 다운로드 완료, 프로그램을 다시 실행하면 업데이트가 적용됩니다.<x id="START_TAG_SPAN" ctype="x-span"/>혹은 버튼을 클릭해서 지금 바로 재시작해주세요.<x id="CLOSE_TAG_SPAN" ctype="x-span"/></target>
+      </trans-unit>
+      <trans-unit id="50e3f27de710efc3623c4b6a46abe14199b6582a" datatype="html">
+        <source>Enter:</source>
+        <target>Enter : </target>
+      </trans-unit>
+      <trans-unit id="a37cfde66e15101d640de7b86c995cd65b18f8ec" datatype="html">
+        <source>Songs</source>
+        <target>노래</target>
+      </trans-unit>
+      <trans-unit id="63f5d0ec23e3cf4abf6d5221107633c90d8d4a15" datatype="html">
+        <source>OR</source>
+        <target>OR</target>
+      </trans-unit>
+      <trans-unit id="dd7c39d13550b0fea7b5632d3d3348f0ebccbd95" datatype="html">
+        <source>
+  Update&apos;s changes
+</source>
+        <target>
+  업데이트 기록
+</target>
+      </trans-unit>
+      <trans-unit id="4bb6f05816c16e1198e3a863fbc29e07542f4fec" datatype="html">
+        <source>
+  News
+</source>
+        <target>
+  뉴스
+</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
