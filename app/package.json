@@ -17,7 +17,7 @@
   "dependencies": {
     "@angular/common": "2.3.1",
     "@angular/compiler": "2.3.1",
-    "@angular/core": "2.3.1",
+    "@angular/core": "11.0.5",
     "@angular/forms": "2.3.1",
     "@angular/http": "2.3.1",
     "@angular/platform-browser": "2.3.1",
